@@ -6,10 +6,12 @@ using System.Text;
 
 public class CodeLockScript : MonoBehaviour
 {
-    [SerializeField]
-    private int[] correctNumber;
-    [SerializeField]
-    private string defaultText;
+    [SerializeField] private int[] correctNumber;
+    [SerializeField] private string defaultText;
+    [SerializeField] private GameEvent lockUnlocked;
+
+    [SerializeField] private float buttonMoveAmount = 0.1f;
+    [SerializeField] private float buttonMoveTime = 0.5f;
 
     private int[] givenNumber;
     private int index = 0;
@@ -21,6 +23,16 @@ public class CodeLockScript : MonoBehaviour
     {
         givenNumber = new int[correctNumber.Length];
         tMPro = GetComponentInChildren<TextMeshPro>();
+    }
+
+    public float ButtonMoveAmount
+    {
+        get { return buttonMoveAmount; }
+    }
+
+    public float ButtonMoveTime
+    {
+        get { return buttonMoveTime; }
     }
 
     public void EnterNumber(int number)
@@ -41,7 +53,7 @@ public class CodeLockScript : MonoBehaviour
                     Debug.Log("Correct code");
                     index = 0;
                     locked = false;
-                    // todo: raise unlock event
+                    lockUnlocked.Raise();
                 }
                 else
                 {
