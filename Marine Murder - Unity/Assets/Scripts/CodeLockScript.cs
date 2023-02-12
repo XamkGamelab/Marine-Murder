@@ -1,47 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System.Text;
 
 public class CodeLockScript : MonoBehaviour
 {
     [SerializeField]
     private int[] correctNumber;
+    [SerializeField]
+    private string defaultText;
+
     private int[] givenNumber;
     private int index = 0;
+    private bool locked = true;
+    private TextMeshPro tMPro;
 
     // Start is called before the first frame update
     void Start()
     {
         givenNumber = new int[correctNumber.Length];
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        tMPro = GetComponentInChildren<TextMeshPro>();
     }
 
     public void EnterNumber(int number)
     {
-        givenNumber[index] = number;
-
-        // enough numbers given, check if they are correct
-        if(index >= correctNumber.Length-1)
+        if (locked)
         {
-            if(CompareArray(correctNumber, givenNumber))
+            givenNumber[index] = number;
+
+            StringBuilder sb = new StringBuilder(tMPro.text);
+            sb[index] = (char)(number + 48);  // need to add 48, because Unicode character for 1 is 49
+            tMPro.text = sb.ToString();
+
+            // enough numbers given, check if they are correct
+            if (index >= correctNumber.Length - 1)
             {
-                Debug.Log("Correct code");
-                index = 0;
+                if (CompareArray(correctNumber, givenNumber))
+                {
+                    Debug.Log("Correct code");
+                    index = 0;
+                    locked = false;
+                    // todo: raise unlock event
+                }
+                else
+                {
+                    Debug.Log("Wrong code");
+                    index = 0;
+                    tMPro.text = defaultText;
+                }
             }
             else
             {
-                Debug.Log("Wrong code");
-                index = 0;
+                index++;
             }
-        }
-        else
-        {
-            index++;
         }
     }
 

@@ -372,6 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctNumber: 01000000020000000300000004000000
+  defaultText: ----
 --- !u!1 &573043387
 GameObject:
   m_ObjectHideFlags: 0
