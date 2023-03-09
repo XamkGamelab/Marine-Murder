@@ -4883,6 +4883,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1085334124}
+  - component: {fileID: 1085334126}
+  - component: {fileID: 1085334125}
   m_Layer: 0
   m_Name: Door Parent
   m_TagString: Untagged
@@ -4912,6 +4914,48 @@ Transform:
   m_Father: {fileID: 543450653601602410}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1085334125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085334123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f707616cade2842838f3674a4a0411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRotationY: 7
+  moveTime: 0.4
+--- !u!114 &1085334126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085334123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6635724abd951e40913cce4d99be8ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 37f3ba04c719e8f4084e31a37579135a, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1085334125}
+        m_TargetAssemblyTypeName: CabinetDoorScript, Assembly-CSharp
+        m_MethodName: OnLockUnlocked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1093243277
 PrefabInstance:
   m_ObjectHideFlags: 0
