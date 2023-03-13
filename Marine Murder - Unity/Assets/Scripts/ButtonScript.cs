@@ -24,18 +24,22 @@ public class ButtonScript : MonoBehaviour, IInteract
     private IEnumerator ButtonAnimation()
     {
         float originalZ = transform.localPosition.z;
-        float targetZ = originalZ + buttonMoveAmount;
+        float targetZ = originalZ - buttonMoveAmount;
 
         // moves the button back
-        while (transform.localPosition.z < targetZ)
+        while (transform.localPosition.z > targetZ)
         {
-            transform.Translate(Vector3.forward * buttonMoveAmount * Time.deltaTime / buttonMoveTime);
+            //transform.Translate(Vector3.forward * buttonMoveAmount * Time.deltaTime / buttonMoveTime);
+            //yield return null;
+            transform.Translate(Vector3.back * buttonMoveAmount * Time.deltaTime / buttonMoveTime);
             yield return null;
         }
         // moves the button forward
-        while (transform.localPosition.z > originalZ)
+        while (transform.localPosition.z < originalZ)
         {
-            transform.Translate(Vector3.back * buttonMoveAmount * Time.deltaTime / buttonMoveTime );
+            //transform.Translate(Vector3.back * buttonMoveAmount * Time.deltaTime / buttonMoveTime );
+            //yield return null;
+            transform.Translate(Vector3.forward * buttonMoveAmount * Time.deltaTime / buttonMoveTime);
             yield return null;
         }
         // make sure the button ends in the same position it started at

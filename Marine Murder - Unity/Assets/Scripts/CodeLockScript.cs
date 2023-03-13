@@ -3,15 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Text;
+using StarterAssets;
 
-public class CodeLockScript : MonoBehaviour
+public class CodeLockScript : MonoBehaviour , IInteract
 {
+    // code lock stuff
     [SerializeField] private int[] correctNumber;
     [SerializeField] private string defaultText;
     [SerializeField] private GameEvent lockUnlocked;
 
+    // button stuff
     [SerializeField] private float buttonMoveAmount = 0.1f;
     [SerializeField] private float buttonMoveTime = 0.5f;
+
+    [SerializeField] private GameObject lockCamera;
+    [SerializeField] private GameManagerScript gameManager;
+
 
     private int[] givenNumber;
     private int index = 0;
@@ -77,5 +84,11 @@ public class CodeLockScript : MonoBehaviour
                 return false;
         }
         return true;
+    }
+
+    public void Interact()
+    {
+        BoxCollider collider = GetComponent<BoxCollider>();
+        gameManager.ToggleObjectFocus(lockCamera, collider, 0f);
     }
 }
