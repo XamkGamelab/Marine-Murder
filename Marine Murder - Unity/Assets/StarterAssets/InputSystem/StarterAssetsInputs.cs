@@ -21,7 +21,8 @@ namespace StarterAssets
 		public bool cursorInputForLook = true;
 
 
-		public Camera mainCamera;
+		[SerializeField] private Camera mainCamera;
+		[SerializeField] private GameManagerScript gameManager;
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 		public void OnMove(InputValue value)
@@ -65,6 +66,11 @@ namespace StarterAssets
 				Debug.Log("Did not Hit");
 			}
 		}
+
+		public void OnExitFocus(InputValue value)
+        {
+			gameManager.ExitFocus();
+        }
 #endif
 
 

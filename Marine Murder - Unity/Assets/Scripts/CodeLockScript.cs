@@ -16,10 +16,8 @@ public class CodeLockScript : MonoBehaviour , IInteract
     [SerializeField] private float buttonMoveAmount = 0.1f;
     [SerializeField] private float buttonMoveTime = 0.5f;
 
-    // viewing code lock stuff
-    [SerializeField] private GameObject characterCamera;
     [SerializeField] private GameObject lockCamera;
-    [SerializeField] private FirstPersonController firstPersonController;
+    [SerializeField] private GameManagerScript gameManager;
 
 
     private int[] givenNumber;
@@ -90,10 +88,7 @@ public class CodeLockScript : MonoBehaviour , IInteract
 
     public void Interact()
     {
-        characterCamera.SetActive(false);
-        lockCamera.SetActive(true);
-        GetComponent<BoxCollider>().enabled = false;
-        firstPersonController.characterControlled = false;
-        firstPersonController.cinemachineTargetPitch = 0f;
+        BoxCollider collider = GetComponent<BoxCollider>();
+        gameManager.ToggleObjectFocus(lockCamera, collider, 0f);
     }
 }
