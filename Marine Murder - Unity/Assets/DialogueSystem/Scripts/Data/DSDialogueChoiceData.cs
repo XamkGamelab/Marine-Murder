@@ -10,5 +10,8 @@ namespace DS.Data
     {
         [field: SerializeField] public string Text { get; set; }
         [field: SerializeField] public DSDialogueSO NextDialogue { get; set; }
+
+        //added stuff
+        [field: SerializeField] public ItemSO NeedsItem { get; set; }
     }
 }

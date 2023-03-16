@@ -52,7 +52,7 @@ namespace StarterAssets
 
 		public void OnInteract(InputValue value)
         {
-			if (firstPersonController.playerState == PlayerState.normal)
+			if (firstPersonController.playerState != PlayerState.dialogue)
 			{
 				// Bit shift the index of the layer (6) to get a bit mask, the "Interactables" layer
 				// This will cast rays only against colliders in layer 6.

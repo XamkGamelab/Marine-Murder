@@ -10,7 +10,7 @@ public class CodeLockScript : MonoBehaviour , IInteract
     // code lock stuff
     [SerializeField] private int[] correctNumber;
     [SerializeField] private string defaultText;
-    [SerializeField] private GameEvent lockUnlocked;
+    [SerializeField] private GameEventSO lockUnlocked;
 
     // button stuff
     [SerializeField] private float buttonMoveAmount = 0.1f;

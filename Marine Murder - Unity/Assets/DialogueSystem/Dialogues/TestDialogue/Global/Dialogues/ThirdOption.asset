@@ -17,5 +17,6 @@ MonoBehaviour:
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
     <NextDialogue>k__BackingField: {fileID: 0}
+    <NeedsItem>k__BackingField: {fileID: 0}
   <DialogueType>k__BackingField: 0
   <IsStartingDialogue>k__BackingField: 0

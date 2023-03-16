@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class GameEventListener : MonoBehaviour
 {
-    public GameEvent Event;
+    public GameEventSO Event;
     public UnityEvent Response;
 
     private void OnEnable()

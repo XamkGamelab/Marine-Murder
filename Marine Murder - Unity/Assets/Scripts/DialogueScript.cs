@@ -10,12 +10,12 @@ using DS.Data;
 
 public class DialogueScript : MonoBehaviour
 {
-    [SerializeField] private DSDialogueSO startingDialogue;
     [SerializeField] private TMP_Text textUI;
     [SerializeField] private Transform choiceButtonParent;
     [SerializeField] private GameObject textArea;
-    [SerializeField] private GameEvent endDialogue;
+    [SerializeField] private GameEventSO endDialogue;
     [SerializeField] private GameObject crosshair;
+    [SerializeField] private InventoryScript inventory;
 
     private DSDialogueSO currentDialogue;
     private List<Transform> buttons = new List<Transform>();
@@ -43,9 +43,27 @@ public class DialogueScript : MonoBehaviour
 
         else if (currentDialogue.DialogueType == DSDialogueType.MultipleChoice)
         {
-            for (int i = 0; i < currentDialogue.Choices.Count; i++)
+            // go through all buttons
+            for (int i = 0; i < buttons.Count; i++)
             {
-                buttons[i].GetComponentInChildren<TMP_Text>().text = currentDialogue.Choices[i].Text;
+                // onyl enable needed amount of buttons
+                if (i < currentDialogue.Choices.Count)
+                {
+                    if (currentDialogue.Choices[i].NeedsItem == null)
+                    {
+                        buttons[i].gameObject.SetActive(true);
+                        buttons[i].GetComponentInChildren<TMP_Text>().text = currentDialogue.Choices[i].Text;
+                    }
+                    else if (inventory.items.Contains(currentDialogue.Choices[i].NeedsItem))
+                    {
+                        buttons[i].gameObject.SetActive(true);
+                        buttons[i].GetComponentInChildren<TMP_Text>().text = currentDialogue.Choices[i].Text;
+                    }
+                    else
+                        buttons[i].gameObject.SetActive(false);
+                }
+                else
+                    buttons[i].gameObject.SetActive(false);
             }
             choiceButtonParent.gameObject.SetActive(true);
         }
@@ -57,6 +75,7 @@ public class DialogueScript : MonoBehaviour
 
     public void OnOptionChosen(int choiceIndex)
     {
+        Debug.Log("Option chosen: " + choiceIndex);
         DSDialogueSO nextDialogue = currentDialogue.Choices[choiceIndex].NextDialogue;
 
         // no more dialogues
