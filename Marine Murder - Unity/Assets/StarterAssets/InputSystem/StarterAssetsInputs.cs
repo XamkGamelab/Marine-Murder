@@ -23,6 +23,8 @@ namespace StarterAssets
 
 		[SerializeField] private Camera mainCamera;
 		[SerializeField] private GameManagerScript gameManager;
+		[SerializeField] private FirstPersonController firstPersonController;
+		[SerializeField] private DialogueScript dialogueScript;
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 		public void OnMove(InputValue value)
@@ -50,21 +52,28 @@ namespace StarterAssets
 
 		public void OnInteract(InputValue value)
         {
-			// Bit shift the index of the layer (6) to get a bit mask, the "Interactables" layer
-			// This will cast rays only against colliders in layer 6.
-			int layerMask = 1 << 6;
+			if (firstPersonController.playerState == PlayerState.normal)
+			{
+				// Bit shift the index of the layer (6) to get a bit mask, the "Interactables" layer
+				// This will cast rays only against colliders in layer 6.
+				int layerMask = 1 << 6;
 
-			RaycastHit hit;
-			// Does the ray intersect any objects in the "Interactables" layer
-			if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
-			{
-				Debug.Log("Did Hit");
-				hit.transform.gameObject.GetComponent<IInteract>().Interact();
+				RaycastHit hit;
+				// Does the ray intersect any objects in the "Interactables" layer
+				if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+				{
+					Debug.Log("Did Hit");
+					hit.transform.gameObject.GetComponent<IInteract>().Interact();
+				}
+				else
+				{
+					Debug.Log("Did not Hit");
+				}
 			}
-			else
-			{
-				Debug.Log("Did not Hit");
-			}
+			else if(firstPersonController.playerState == PlayerState.dialogue)
+            {
+				dialogueScript.NextDialogue();
+            }
 		}
 
 		public void OnExitFocus(InputValue value)

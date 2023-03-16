@@ -51,10 +51,11 @@ namespace StarterAssets
         [Tooltip("How far in degrees can you move the camera down")]
         public float BottomClamp = -90.0f;
 
+
+        public PlayerState playerState = PlayerState.normal; // controlling character or viewing code lock
         // for viewing code lock
         public GameObject codeLockVirtualCamera;
         [HideInInspector]
-        public bool characterControlled = true; // controlling character or viewing code lock
         float cinemachineTargetYaw;
 
         // cinemachine
@@ -120,7 +121,8 @@ namespace StarterAssets
         {
             JumpAndGravity();
             GroundedCheck();
-            Move();
+            if (playerState == PlayerState.normal)
+                Move();
         }
 
         private void LateUpdate()
@@ -138,7 +140,7 @@ namespace StarterAssets
         private void CameraRotation()
         {
             // if there is an input
-            if (_input.look.sqrMagnitude >= _threshold)
+            if (_input.look.sqrMagnitude >= _threshold && playerState != PlayerState.dialogue)
             {
                 //Don't multiply mouse input by Time.deltaTime
                 float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
@@ -150,7 +152,7 @@ namespace StarterAssets
                 cinemachineTargetPitch = ClampAngle(cinemachineTargetPitch, BottomClamp, TopClamp);
 
                 // player is using the normal controller
-                if (characterControlled)
+                if (playerState == PlayerState.normal)
                 {
                     // Update Cinemachine camera target pitch
                     CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(cinemachineTargetPitch, 0.0f, 0.0f);
@@ -159,7 +161,7 @@ namespace StarterAssets
                     transform.Rotate(Vector3.up * _rotationVelocity);
                 }
                 // player is viewing the code lock
-                else
+                else if (playerState == PlayerState.codeLock)
                 {
                     cinemachineTargetYaw += _input.look.x * RotationSpeed * deltaTimeMultiplier;
 
@@ -296,5 +298,10 @@ namespace StarterAssets
             // when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
             Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
         }
+        public void OnEndDialogue()
+        {
+            playerState = PlayerState.normal;
+        }
     }
+
 }

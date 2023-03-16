@@ -89,6 +89,6 @@ public class CodeLockScript : MonoBehaviour , IInteract
     public void Interact()
     {
         BoxCollider collider = GetComponent<BoxCollider>();
-        gameManager.ToggleObjectFocus(lockCamera, collider, 0f);
+        gameManager.ToggleObjectFocus(lockCamera, collider, 0f, true);
     }
 }

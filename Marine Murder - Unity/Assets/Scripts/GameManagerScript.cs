@@ -18,10 +18,10 @@ public class GameManagerScript : MonoBehaviour
     public void ExitFocus()
     {
         if (isFocused)
-            ToggleObjectFocus(_targetCamera, _interactionCollider, _oldTargetPitch);
+            ToggleObjectFocus(_targetCamera, _interactionCollider, _oldTargetPitch, false);
     }
 
-    public void ToggleObjectFocus(GameObject targetCamera, BoxCollider interactionCollider, float targetPitch)
+    public void ToggleObjectFocus(GameObject targetCamera, BoxCollider interactionCollider, float targetPitch, bool startFocus)
     {
         _targetCamera = targetCamera;
         _interactionCollider = interactionCollider;
@@ -30,8 +30,12 @@ public class GameManagerScript : MonoBehaviour
         characterCamera.SetActive(!characterCamera.activeSelf);
         targetCamera.SetActive(!targetCamera.activeSelf);
         interactionCollider.enabled = !interactionCollider.enabled;
-        firstPersonController.characterControlled = !firstPersonController.characterControlled;
         firstPersonController.cinemachineTargetPitch = targetPitch;
+
+        if (startFocus)
+            firstPersonController.playerState = PlayerState.codeLock;
+        else
+            firstPersonController.playerState = PlayerState.normal;
 
         isFocused = !isFocused;
     }
