@@ -49,6 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 11400000, guid: 803ef9ed470fbe849b0da4ee81b09bbb, type: 2}
+  - {fileID: 11400000, guid: 32c4e866ece9f7843b5c7e1f1ddced5c, type: 2}
+  - {fileID: 11400000, guid: d25f5bcba646a8641bf9ee5fad4ac139, type: 2}
 --- !u!1001 &2681598506526842913
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -86,7 +88,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

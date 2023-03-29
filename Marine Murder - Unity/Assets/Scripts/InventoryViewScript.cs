@@ -11,7 +11,7 @@ public class InventoryViewScript : MonoBehaviour
 
     private float mouseScroll;
     private bool scrolling = false;
-    public int currentItemIndex = 0;
+    private int currentItemIndex = 0;
     private int maxItemIndex;
 
 
@@ -32,7 +32,6 @@ public class InventoryViewScript : MonoBehaviour
 
         if (mouseScroll > 0)
         {
-            Debug.Log("scroll up");
             if (!scrolling && currentItemIndex < maxItemIndex)
             {
                 StartCoroutine(ScrollImages(1));
@@ -40,7 +39,6 @@ public class InventoryViewScript : MonoBehaviour
         }
         if (mouseScroll < 0)
         {
-            Debug.Log("scroll down");
             if (!scrolling && currentItemIndex > 0)
             {
                 StartCoroutine(ScrollImages(-1));
