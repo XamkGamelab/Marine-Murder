@@ -51,7 +51,7 @@ public class InventoryViewScript : MonoBehaviour
         return inventoryScript.items[currentItemIndex];
     }
 
-    private void UpdateInvetoryView()
+    public void UpdateInvetoryView()
     {
         int itemCount = inventoryScript.items.Count;
         for (int i = 0; i < imageParent.transform.childCount; i++)
