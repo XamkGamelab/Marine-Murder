@@ -45,4 +45,9 @@ public class ButtonScript : MonoBehaviour, IInteract
         // make sure the button ends in the same position it started at
         transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, originalZ);
     }
+
+    public string GetText()
+    {
+        throw new System.NotImplementedException();
+    }
 }

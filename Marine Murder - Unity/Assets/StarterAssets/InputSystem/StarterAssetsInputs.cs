@@ -62,7 +62,7 @@ namespace StarterAssets
 				// Does the ray intersect any objects in the "Interactables" layer
 				if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
 				{
-					hit.transform.gameObject.GetComponent<IInteract>().Interact();
+					//hit.transform.gameObject.GetComponent<IInteract>().Interact();
 				}
 			}
 			else if(firstPersonController.playerState == PlayerState.dialogue)

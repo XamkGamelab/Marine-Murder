@@ -7,6 +7,8 @@ using StarterAssets;
 
 public class CodeLockScript : MonoBehaviour , IInteract
 {
+    [SerializeField] private string highlightText;
+
     // code lock stuff
     [SerializeField] private int[] correctNumber;
     [SerializeField] private string defaultText;
@@ -90,5 +92,10 @@ public class CodeLockScript : MonoBehaviour , IInteract
     {
         BoxCollider collider = GetComponent<BoxCollider>();
         gameManager.ToggleObjectFocus(lockCamera, collider, 0f, true);
+    }
+
+    public string GetText()
+    {
+        return highlightText;
     }
 }
