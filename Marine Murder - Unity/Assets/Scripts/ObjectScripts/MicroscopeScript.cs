@@ -50,6 +50,7 @@ public class MicroscopeScript : MonoBehaviour, IInteract
         }
         else
         {
+            // begin the microscope puzzle here
             throw new System.NotImplementedException();
         }
     }

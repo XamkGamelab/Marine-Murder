@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class InventoryViewScript : MonoBehaviour
 {
@@ -53,13 +54,20 @@ public class InventoryViewScript : MonoBehaviour
 
     public void UpdateInvetoryView()
     {
+        maxItemIndex = inventoryScript.items.Count - 1;
+
         int itemCount = inventoryScript.items.Count;
         for (int i = 0; i < imageParent.transform.childCount; i++)
         {
+            GameObject child = imageParent.transform.GetChild(i).gameObject;
+
             if (i < itemCount)
-                imageParent.transform.GetChild(i).gameObject.SetActive(true);
+            {
+                child.GetComponent<Image>().sprite = inventoryScript.items[i].itemImage;
+                child.SetActive(true);
+            }
             else
-                imageParent.transform.GetChild(i).gameObject.SetActive(false);
+                child.SetActive(false);
         }
     }
 

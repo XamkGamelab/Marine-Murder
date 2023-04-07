@@ -5,4 +5,12 @@ using UnityEngine;
 public class InventoryScript : MonoBehaviour
 {
     public List<ItemSO> items;
+
+    [SerializeField] private InventoryViewScript inventoryView;
+
+    public void AddItem(ItemSO item)
+    {
+        items.Add(item);
+        inventoryView.UpdateInvetoryView();
+    }
 }

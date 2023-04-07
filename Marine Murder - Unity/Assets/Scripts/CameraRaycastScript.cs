@@ -33,6 +33,9 @@ public class CameraRaycastScript : MonoBehaviour
     void Update()
     {
         RaycastCheck();
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && textPanel.activeSelf)
+            textPanel.SetActive(false);
     }
 
     void RaycastCheck()
@@ -42,9 +45,6 @@ public class CameraRaycastScript : MonoBehaviour
         // Bit shift the index of the layer (6) to get a bit mask, the "Interactables" layer
         // This will cast rays only against colliders in layer 6.
         int layerMask = 1 << 6;
-        //int layermask1 = 1 << 6;
-        //int layermask2 = 1 << 5;
-        //int layerMask = layermask1 | layermask2;
 
         // if hit something on interactables layer
         if (Physics.Raycast(forwardRay, out hit, raycastDistance, layerMask))
@@ -89,11 +89,14 @@ public class CameraRaycastScript : MonoBehaviour
             highlightPanel.SetActive(false);
         }
         Key = false;
+
+        interactButton.onClick.RemoveAllListeners();
+        examineButton.onClick.RemoveAllListeners();
     }
 
     private void HighlighPanelPositionUpdate()
     {
-        // update the position on highlight panel
+        // update the position on highlight panel if it's active
         if (highlightPanel.activeSelf)
         {
             Vector3 point = camera.WorldToScreenPoint(target.transform.position);
