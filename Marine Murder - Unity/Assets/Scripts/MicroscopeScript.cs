@@ -4,18 +4,36 @@ using UnityEngine;
 
 public class MicroscopeScript : MonoBehaviour, IInteract
 {
-    [SerializeField] private string floorInteractionText;
-    [SerializeField] private string tableInteractionText;
+    [SerializeField] private GameEventSO interactEventSO;
+
+    [SerializeField] private string floorInteractText;
+    [SerializeField] private string tableInteractText;
+
+    [SerializeField] private string floorExamineText;
+    [SerializeField] private string tableBrokenExamineText;
+    [SerializeField] private string tableFixedExamineText;
+
     [SerializeField] private Transform microscopePlace;
 
     private bool onFloor = true;
+    private bool broken = true;
 
-    public string GetText()
+    public string GetExamineText()
     {
         if (onFloor)
-            return floorInteractionText;
+            return floorExamineText;
+        else if (broken)
+            return tableBrokenExamineText;
         else
-            return tableInteractionText;
+            return tableFixedExamineText;
+    }
+
+    public string GetInteractText()
+    {
+        if (onFloor)
+            return floorInteractText;
+        else
+            return tableInteractText;
     }
 
     public void Interact()
@@ -27,11 +45,12 @@ public class MicroscopeScript : MonoBehaviour, IInteract
             gameObject.transform.rotation = microscopePlace.rotation;
             gameObject.transform.Rotate(new Vector3(0, 0, 180), Space.Self);
 
+            interactEventSO.Raise();
             onFloor = false;
         }
         else
         {
-
+            throw new System.NotImplementedException();
         }
     }
 }

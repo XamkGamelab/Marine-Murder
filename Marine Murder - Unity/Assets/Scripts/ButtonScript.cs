@@ -46,7 +46,12 @@ public class ButtonScript : MonoBehaviour, IInteract
         transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, originalZ);
     }
 
-    public string GetText()
+    public string GetExamineText()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public string GetInteractText()
     {
         throw new System.NotImplementedException();
     }

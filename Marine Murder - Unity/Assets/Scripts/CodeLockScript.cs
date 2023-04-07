@@ -94,8 +94,13 @@ public class CodeLockScript : MonoBehaviour , IInteract
         gameManager.ToggleObjectFocus(lockCamera, collider, 0f, true);
     }
 
-    public string GetText()
+    public string GetExamineText()
     {
         return highlightText;
+    }
+
+    public string GetInteractText()
+    {
+        throw new System.NotImplementedException();
     }
 }

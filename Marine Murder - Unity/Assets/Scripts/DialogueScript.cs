@@ -37,6 +37,7 @@ public class DialogueScript : MonoBehaviour
     {
         if (currentDialogue.DialogueType == DSDialogueType.SingleChoice)
         {
+            Debug.Log("text should be: " + currentDialogue.Text);
             textUI.text = currentDialogue.Text;
             choiceButtonParent.gameObject.SetActive(false);
         }

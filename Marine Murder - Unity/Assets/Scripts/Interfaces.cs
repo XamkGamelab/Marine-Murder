@@ -5,5 +5,6 @@ using UnityEngine;
 public interface IInteract
 {
     public void Interact();
-    public string GetText();
+    public string GetInteractText();
+    public string GetExamineText();
 }

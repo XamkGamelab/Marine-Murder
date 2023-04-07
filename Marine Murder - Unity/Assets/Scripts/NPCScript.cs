@@ -10,7 +10,12 @@ public class NPCScript : MonoBehaviour , IInteract
     [SerializeField] private DialogueScript gameManager;
     [SerializeField] private FirstPersonController firstPersonController;
 
-    public string GetText()
+    public string GetExamineText()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public string GetInteractText()
     {
         throw new System.NotImplementedException();
     }
