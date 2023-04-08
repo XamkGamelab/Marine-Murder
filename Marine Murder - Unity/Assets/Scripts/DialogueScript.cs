@@ -7,15 +7,18 @@ using DS;
 using TMPro;
 using DS.Enumerations;
 using DS.Data;
+using UnityEngine.InputSystem.UI;
 
 public class DialogueScript : MonoBehaviour
 {
+    [SerializeField] private FirstPersonInputModule firstPersonInputModule;
+    [SerializeField] private InputSystemUIInputModule inputSystemUIInputModule;
+    [SerializeField] private InventoryScript inventory;
     [SerializeField] private TMP_Text textUI;
     [SerializeField] private Transform choiceButtonParent;
     [SerializeField] private GameObject textArea;
     [SerializeField] private GameEventSO endDialogue;
     [SerializeField] private GameObject crosshair;
-    [SerializeField] private InventoryScript inventory;
 
     private DSDialogueSO currentDialogue;
     private List<Transform> buttons = new List<Transform>();
@@ -47,7 +50,7 @@ public class DialogueScript : MonoBehaviour
             // go through all buttons
             for (int i = 0; i < buttons.Count; i++)
             {
-                // onyl enable needed amount of buttons
+                // only enable needed amount of buttons
                 if (i < currentDialogue.Choices.Count)
                 {
                     if (currentDialogue.Choices[i].NeedsItem == null)
@@ -82,6 +85,9 @@ public class DialogueScript : MonoBehaviour
         // no more dialogues
         if (nextDialogue == null)
         {
+            firstPersonInputModule.enabled = true;
+            inputSystemUIInputModule.enabled = false;
+
             Cursor.lockState = CursorLockMode.Locked;
             textArea.SetActive(false);
             choiceButtonParent.gameObject.SetActive(false);
@@ -106,6 +112,10 @@ public class DialogueScript : MonoBehaviour
 
     public void StartDialogue(DSDialogueSO dialogueNode)
     {
+        firstPersonInputModule.enabled = false;
+        inputSystemUIInputModule.enabled = true;
+        Cursor.visible = true;
+
         currentDialogue = dialogueNode;
         ShowText();
         Cursor.lockState = CursorLockMode.Confined;

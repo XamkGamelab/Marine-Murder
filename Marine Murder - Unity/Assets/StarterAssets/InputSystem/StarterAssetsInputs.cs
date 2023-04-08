@@ -52,10 +52,25 @@ namespace StarterAssets
 
 		public void OnInteract(InputValue value)
         {
-			if (firstPersonController.playerState != PlayerState.dialogue)
+			// handles interaction with codelock buttons
+			if (firstPersonController.playerState == PlayerState.codeLock)
 			{
 				// Bit shift the index of the layer (6) to get a bit mask, the "Interactables" layer
 				// This will cast rays only against colliders in layer 6.
+				int layerMask = 1 << 6;
+
+				RaycastHit hit;
+				// Does the ray intersect any objects in the "Interactables" layer
+				if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+				{
+					hit.transform.gameObject.GetComponent<IInteract>().Interact();
+				}
+			}
+			// handles interacting with NPC
+			else if (firstPersonController.playerState != PlayerState.dialogue)
+			{
+				// Bit shift the index of the layer (7) to get a bit mask, the "Dialogue" layer
+				// This will cast rays only against colliders in layer 7.
 				int layerMask = 1 << 7;
 
 				RaycastHit hit;
@@ -65,7 +80,7 @@ namespace StarterAssets
 					hit.transform.gameObject.GetComponent<IInteract>().Interact();
 				}
 			}
-            else if (firstPersonController.playerState == PlayerState.dialogue)
+			else if (firstPersonController.playerState == PlayerState.dialogue)
             {
                 Debug.Log("Next dialogue");
                 dialogueScript.NextDialogue();

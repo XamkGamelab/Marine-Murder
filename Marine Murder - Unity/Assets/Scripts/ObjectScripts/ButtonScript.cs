@@ -16,7 +16,6 @@ public class ButtonScript : MonoBehaviour, IInteract
 
     public void Interact()
     {
-        Debug.Log("Interacted with button " + buttonNumber);
         this.transform.GetComponentInParent<CodeLockScript>().EnterNumber(buttonNumber);
         StartCoroutine(ButtonAnimation());
     }

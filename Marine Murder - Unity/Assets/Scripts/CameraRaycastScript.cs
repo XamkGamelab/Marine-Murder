@@ -114,6 +114,7 @@ public class CameraRaycastScript : MonoBehaviour
 
     public void InteractResponse()
     {
+        Debug.Log("InteractResponse");
         textPanel.SetActive(true);
         if (target.TryGetComponent<IInteract>(out IInteract interaction))
             interactLookAtText.text = interaction.GetInteractText();

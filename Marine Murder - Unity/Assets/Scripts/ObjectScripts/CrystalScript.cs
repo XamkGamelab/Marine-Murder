@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CorpseScript : MonoBehaviour, IInteract
+public class CrystalScript : MonoBehaviour, IInteract
 {
-    [SerializeField] private ItemSO IDCardItemSO;
+    [SerializeField] private ItemSO crystalSO;
     [SerializeField] private InventoryScript inventory;
+    [SerializeField] private GameEventSO interactEvent;
 
     [SerializeField] private string examineText;
-
-    private bool hasID = true;
+    [SerializeField] private string interactText;
 
     public string GetExamineText()
     {
@@ -18,15 +18,13 @@ public class CorpseScript : MonoBehaviour, IInteract
 
     public string GetInteractText()
     {
-        return "";
+        return interactText;
     }
 
     public void Interact()
     {
-        if (hasID)
-        {
-            inventory.AddItem(IDCardItemSO);
-            hasID = false;
-        }
+        inventory.AddItem(crystalSO);
+        interactEvent.Raise();
+        Destroy(this.gameObject);
     }
 }

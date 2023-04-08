@@ -7,7 +7,7 @@ using StarterAssets;
 
 public class CodeLockScript : MonoBehaviour , IInteract
 {
-    [SerializeField] private string highlightText;
+    [SerializeField] private string examineText;
 
     // code lock stuff
     [SerializeField] private int[] correctNumber;
@@ -96,7 +96,7 @@ public class CodeLockScript : MonoBehaviour , IInteract
 
     public string GetExamineText()
     {
-        return highlightText;
+        return examineText;
     }
 
     public string GetInteractText()
