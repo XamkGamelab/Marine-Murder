@@ -1,0 +1,334 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0202a3095b7477a4091d56344f0af6b3, type: 3}
+  m_Name: MillieDialogueGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: MillieDialogue
+  <Groups>k__BackingField:
+  - <ID>k__BackingField: b68a66d0-cb5b-4e09-9182-bbd5048935e2
+    <Name>k__BackingField: HowAreYouPath
+    <Position>k__BackingField: {x: 676.6666, y: -587.3333}
+  - <ID>k__BackingField: 212d5797-3a6c-40b9-870c-11ef3e166986
+    <Name>k__BackingField: WhatHappenedPath
+    <Position>k__BackingField: {x: 676.6666, y: -272}
+  - <ID>k__BackingField: 3043bd00-168e-481a-81f3-6c15808aa2f5
+    <Name>k__BackingField: RelationshipWithVictorPath
+    <Position>k__BackingField: {x: 676.6666, y: 43.333374}
+  - <ID>k__BackingField: 86133406-6a1c-4fe5-a7ad-0cd99d004efa
+    <Name>k__BackingField: MicroscopePath
+    <Position>k__BackingField: {x: 679.99994, y: 352.66666}
+  - <ID>k__BackingField: 2e1a4017-1d09-4a4c-b148-faa05c9f2717
+    <Name>k__BackingField: CrystalPath
+    <Position>k__BackingField: {x: 680.00006, y: 647.99994}
+  <Nodes>k__BackingField:
+  - <ID>k__BackingField: 8fc707c5-5d94-403a-b943-267ce6dbadc0
+    <Name>k__BackingField: 1
+    <Text>k__BackingField: ' '
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: How are you?
+      <NodeID>k__BackingField: 1995b4f5-be40-412c-b865-2a90f4681659
+    - <Text>k__BackingField: What happened?
+      <NodeID>k__BackingField: aad19ae1-d9b5-447a-a60c-f6c0715c82c9
+    - <Text>k__BackingField: Relationship with Victor
+      <NodeID>k__BackingField: 10aaf4d5-7020-4c75-88e6-b8ece31076e3
+    - <Text>k__BackingField: Microscope
+      <NodeID>k__BackingField: c59db6c7-030d-49f1-a129-6ec58c62a3d3
+    - <Text>k__BackingField: Crystal
+      <NodeID>k__BackingField: e96c46e1-0835-4397-88e3-00ad851b4fd9
+    - <Text>k__BackingField: '*Leave*'
+      <NodeID>k__BackingField: 55f718dd-4ff6-40cf-b1b4-d9cc6bbd0cfa
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 1
+    <Position>k__BackingField: {x: 138.66667, y: 218}
+  - <ID>k__BackingField: 1995b4f5-be40-412c-b865-2a90f4681659
+    <Name>k__BackingField: 2
+    <Text>k__BackingField: 'P: How are you doing Millie?'
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: bb7ef53a-44f4-40b2-9411-d3ea553c7be6
+    <GroupID>k__BackingField: b68a66d0-cb5b-4e09-9182-bbd5048935e2
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 702, y: -528.6667}
+  - <ID>k__BackingField: 0147f00a-34df-4f68-b4a3-1cf16cf4cab9
+    <Name>k__BackingField: 5
+    <Text>k__BackingField: 'M: As if that''s any help, the only tolerable person
+      here is Wren, anyway.'
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: caa9df44-5471-405a-9cae-7e043ae585cc
+    <GroupID>k__BackingField: b68a66d0-cb5b-4e09-9182-bbd5048935e2
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 1978.6666, y: -528.6667}
+  - <ID>k__BackingField: caa9df44-5471-405a-9cae-7e043ae585cc
+    <Name>k__BackingField: 6
+    <Text>k__BackingField: "P: Whatever you say\u2026"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 8fc707c5-5d94-403a-b943-267ce6dbadc0
+    <GroupID>k__BackingField: b68a66d0-cb5b-4e09-9182-bbd5048935e2
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 2475.3333, y: -528.6667}
+  - <ID>k__BackingField: aad19ae1-d9b5-447a-a60c-f6c0715c82c9
+    <Name>k__BackingField: 7
+    <Text>k__BackingField: "P: Do you have any idea what could\u2019ve happened?"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 3c01abea-2be4-4e92-8fd0-f46365dac4ec
+    <GroupID>k__BackingField: 212d5797-3a6c-40b9-870c-11ef3e166986
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 702, y: -213.33333}
+  - <ID>k__BackingField: 76766e7f-4e69-4cba-9992-e20a3673dc8d
+    <Name>k__BackingField: 10
+    <Text>k__BackingField: "M: Last night. We had a small argument and I haven\u2019t
+      seen him since\u2026 until now."
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 5319bb3a-196f-4f53-acae-8bf5ccba90fa
+    <GroupID>k__BackingField: 212d5797-3a6c-40b9-870c-11ef3e166986
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 1789.3334, y: -213.33333}
+  - <ID>k__BackingField: 5319bb3a-196f-4f53-acae-8bf5ccba90fa
+    <Name>k__BackingField: 11
+    <Text>k__BackingField: 'P: An argument?'
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 6c870054-1f1c-4d3a-a3e6-38b103c630b3
+    <GroupID>k__BackingField: 212d5797-3a6c-40b9-870c-11ef3e166986
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 2336.6667, y: -213.33333}
+  - <ID>k__BackingField: 6c870054-1f1c-4d3a-a3e6-38b103c630b3
+    <Name>k__BackingField: 12
+    <Text>k__BackingField: "M: Well yeah, people in relationships argue sometimes
+      - not like you\u2019d know!"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 8fc707c5-5d94-403a-b943-267ce6dbadc0
+    <GroupID>k__BackingField: 212d5797-3a6c-40b9-870c-11ef3e166986
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 2593.3333, y: -213.33333}
+  - <ID>k__BackingField: bb7ef53a-44f4-40b2-9411-d3ea553c7be6
+    <Name>k__BackingField: 3
+    <Text>k__BackingField: 'M: (angry, almost yelling) How do you think I am?! The
+      person I dated for years is now dead!'
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 566110c9-4edd-4171-a62f-166ab16b3a9d
+    <GroupID>k__BackingField: b68a66d0-cb5b-4e09-9182-bbd5048935e2
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 958.6667, y: -528.6667}
+  - <ID>k__BackingField: 566110c9-4edd-4171-a62f-166ab16b3a9d
+    <Name>k__BackingField: 4
+    <Text>k__BackingField: "P: Well, at least you have us, the crew. You\u2019re
+      not alone."
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 0147f00a-34df-4f68-b4a3-1cf16cf4cab9
+    <GroupID>k__BackingField: b68a66d0-cb5b-4e09-9182-bbd5048935e2
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 1572, y: -528.6667}
+  - <ID>k__BackingField: 3c01abea-2be4-4e92-8fd0-f46365dac4ec
+    <Name>k__BackingField: 8
+    <Text>k__BackingField: 'M: How am I supposed to know that?!'
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: ebe2d386-a5f9-4f80-8a13-30693a1d3a33
+    <GroupID>k__BackingField: 212d5797-3a6c-40b9-870c-11ef3e166986
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 1079.3334, y: -213.33333}
+  - <ID>k__BackingField: ebe2d386-a5f9-4f80-8a13-30693a1d3a33
+    <Name>k__BackingField: 9
+    <Text>k__BackingField: 'P: Okay. Can you tell me when you last saw Victor alive?'
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 76766e7f-4e69-4cba-9992-e20a3673dc8d
+    <GroupID>k__BackingField: 212d5797-3a6c-40b9-870c-11ef3e166986
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 1377.3334, y: -213.33333}
+  - <ID>k__BackingField: 10aaf4d5-7020-4c75-88e6-b8ece31076e3
+    <Name>k__BackingField: 13
+    <Text>k__BackingField: 'P: How was the relationship between you and Victor?'
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: d3045115-622b-4234-9b8e-954c0a849fe2
+    <GroupID>k__BackingField: 3043bd00-168e-481a-81f3-6c15808aa2f5
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 702, y: 102}
+  - <ID>k__BackingField: d3045115-622b-4234-9b8e-954c0a849fe2
+    <Name>k__BackingField: 14
+    <Text>k__BackingField: 'M: None of your business, bitch.'
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 51b7f5b3-5bc1-453c-be37-c3ec82c2a72b
+    <GroupID>k__BackingField: 3043bd00-168e-481a-81f3-6c15808aa2f5
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 1092.6666, y: 102}
+  - <ID>k__BackingField: 51b7f5b3-5bc1-453c-be37-c3ec82c2a72b
+    <Name>k__BackingField: 15
+    <Text>k__BackingField: "P: I\u2019m only trying to help here. I need to understand
+      the dynamic between the crew so I can find out what happened and who\u2019s
+      responsible."
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: debb5ab1-ed3c-47d0-9d23-313f87bd7251
+    <GroupID>k__BackingField: 3043bd00-168e-481a-81f3-6c15808aa2f5
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 1360.6666, y: 102}
+  - <ID>k__BackingField: debb5ab1-ed3c-47d0-9d23-313f87bd7251
+    <Name>k__BackingField: 16
+    <Text>k__BackingField: "M: Well\u2026 I don\u2019t really want to talk about
+      it. Our anniversary is in three days and now he\u2019s suddenly dead. Can you
+      please just leave me the fuck alone?"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 8fc707c5-5d94-403a-b943-267ce6dbadc0
+    <GroupID>k__BackingField: 3043bd00-168e-481a-81f3-6c15808aa2f5
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 2004.6666, y: 102}
+  - <ID>k__BackingField: c59db6c7-030d-49f1-a129-6ec58c62a3d3
+    <Name>k__BackingField: 17
+    <Text>k__BackingField: "P: Hey, the microscope doesn\u2019t work. Do you know
+      how to fix it?"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 5df12576-0ada-4c2f-ae4b-ba8bfd61d6aa
+    <GroupID>k__BackingField: 86133406-6a1c-4fe5-a7ad-0cd99d004efa
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 705.3333, y: 411.3333}
+  - <ID>k__BackingField: 5df12576-0ada-4c2f-ae4b-ba8bfd61d6aa
+    <Name>k__BackingField: 18
+    <Text>k__BackingField: 'M: Did it fall on the floor again?'
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 3aea28ff-76ff-4ddc-ba20-18ff93eb97ba
+    <GroupID>k__BackingField: 86133406-6a1c-4fe5-a7ad-0cd99d004efa
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 1158, y: 411.3333}
+  - <ID>k__BackingField: 3aea28ff-76ff-4ddc-ba20-18ff93eb97ba
+    <Name>k__BackingField: 19
+    <Text>k__BackingField: "P: Yeah, and I need to use it\u2026 wait, again?"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 3cc6bf27-eb46-42b9-bad4-4525e6e7c68c
+    <GroupID>k__BackingField: 86133406-6a1c-4fe5-a7ad-0cd99d004efa
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 1420.6666, y: 411.3333}
+  - <ID>k__BackingField: 3cc6bf27-eb46-42b9-bad4-4525e6e7c68c
+    <Name>k__BackingField: 20
+    <Text>k__BackingField: 'M: There should be this REALLY thick manual somewhere
+      in the lab. So, how about you stop bothering me and fucking fix it yourself?'
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 8fc707c5-5d94-403a-b943-267ce6dbadc0
+    <GroupID>k__BackingField: 86133406-6a1c-4fe5-a7ad-0cd99d004efa
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 1751.3334, y: 411.3333}
+  - <ID>k__BackingField: e96c46e1-0835-4397-88e3-00ad851b4fd9
+    <Name>k__BackingField: 21
+    <Text>k__BackingField: 'P: Do you know what this crystal is?'
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 7a44b758-e1e7-4d0f-904e-f86bf78ed6ec
+    <GroupID>k__BackingField: 2e1a4017-1d09-4a4c-b148-faa05c9f2717
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 705.3333, y: 706.6667}
+  - <ID>k__BackingField: 7a44b758-e1e7-4d0f-904e-f86bf78ed6ec
+    <Name>k__BackingField: 22
+    <Text>k__BackingField: 'M: No fucking clue, I have never seen that before.'
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: cf7cfe23-b149-4453-b442-4199424c6f62
+    <GroupID>k__BackingField: 2e1a4017-1d09-4a4c-b148-faa05c9f2717
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 996, y: 706.6667}
+  - <ID>k__BackingField: cf7cfe23-b149-4453-b442-4199424c6f62
+    <Name>k__BackingField: 23
+    <Text>k__BackingField: "P: I found it next to Victor\u2019s body. Do you know
+      why it would be there? Was he interested in crystals?"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 91e21e53-b496-47cb-96c0-ccd812632f5a
+    <GroupID>k__BackingField: 2e1a4017-1d09-4a4c-b148-faa05c9f2717
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 1368.6666, y: 706.6667}
+  - <ID>k__BackingField: 91e21e53-b496-47cb-96c0-ccd812632f5a
+    <Name>k__BackingField: 24
+    <Text>k__BackingField: "M: No, that\u2019s stupid. He didn't have anything to
+      do with ANY crystals. Who would be interested in boring shit like that?"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 5d29ecf4-3761-4a33-8877-6082da5ce8b9
+    <GroupID>k__BackingField: 2e1a4017-1d09-4a4c-b148-faa05c9f2717
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 2012.6666, y: 706.6667}
+  - <ID>k__BackingField: 5d29ecf4-3761-4a33-8877-6082da5ce8b9
+    <Name>k__BackingField: 25
+    <Text>k__BackingField: "P: \u2026 Okay."
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 8fc707c5-5d94-403a-b943-267ce6dbadc0
+    <GroupID>k__BackingField: 2e1a4017-1d09-4a4c-b148-faa05c9f2717
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 2656.6667, y: 706.6667}
+  - <ID>k__BackingField: 55f718dd-4ff6-40cf-b1b4-d9cc6bbd0cfa
+    <Name>k__BackingField: Leave
+    <Text>k__BackingField: I'm gonna investigate more
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 702, y: 988.6667}
+  <OldGroupNames>k__BackingField:
+  - HowAreYouPath
+  - WhatHappenedPath
+  - RelationshipWithVictorPath
+  - MicroscopePath
+  - CrystalPath
+  <OldUngroupedNodeNames>k__BackingField:
+  - 1
+  - Leave
+  <OldGroupedNodeNames>k__BackingField:
+    list:
+    - Key: HowAreYouPath
+      Value:
+      - 2
+      - 5
+      - 6
+      - 3
+      - 4
+    - Key: WhatHappenedPath
+      Value:
+      - 7
+      - 10
+      - 11
+      - 12
+      - 8
+      - 9
+    - Key: RelationshipWithVictorPath
+      Value:
+      - 13
+      - 14
+      - 15
+      - 16
+    - Key: MicroscopePath
+      Value:
+      - 17
+      - 18
+      - 19
+      - 20
+    - Key: CrystalPath
+      Value:
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25

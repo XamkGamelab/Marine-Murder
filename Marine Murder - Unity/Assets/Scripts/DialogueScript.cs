@@ -40,7 +40,7 @@ public class DialogueScript : MonoBehaviour
     {
         if (currentDialogue.DialogueType == DSDialogueType.SingleChoice)
         {
-            Debug.Log("text should be: " + currentDialogue.Text);
+            //Debug.Log("text should be: " + currentDialogue.Text);
             textUI.text = currentDialogue.Text;
             choiceButtonParent.gameObject.SetActive(false);
         }
@@ -53,18 +53,40 @@ public class DialogueScript : MonoBehaviour
                 // only enable needed amount of buttons
                 if (i < currentDialogue.Choices.Count)
                 {
-                    if (currentDialogue.Choices[i].NeedsItem == null)
+                    // this dialogue doesn't require item or event
+                    if (currentDialogue.Choices[i].NeedsItem == null && currentDialogue.Choices[i].NeedsEventCheck == null)
                     {
-                        buttons[i].gameObject.SetActive(true);
-                        buttons[i].GetComponentInChildren<TMP_Text>().text = currentDialogue.Choices[i].Text;
+                        Debug.Log("dialogue without requirements");
+                        ActivateButton(i);
                     }
-                    else if (inventory.items.Contains(currentDialogue.Choices[i].NeedsItem))
-                    {
-                        buttons[i].gameObject.SetActive(true);
-                        buttons[i].GetComponentInChildren<TMP_Text>().text = currentDialogue.Choices[i].Text;
-                    }
+                    // this dialogue does require item or event
                     else
-                        buttons[i].gameObject.SetActive(false);
+                    {
+                        // requires both
+                        if (currentDialogue.Choices[i].NeedsItem != null && currentDialogue.Choices[i].NeedsEventCheck != null)
+                        {
+                            if (inventory.items.Contains(currentDialogue.Choices[i].NeedsItem) && currentDialogue.Choices[i].NeedsEventCheck.eventHasHappened)
+                                ActivateButton(i);
+                            else
+                                buttons[i].gameObject.SetActive(false);
+                        }
+                        // requires only item
+                        else if(currentDialogue.Choices[i].NeedsItem != null)
+                        {
+                            if (inventory.items.Contains(currentDialogue.Choices[i].NeedsItem))
+                                ActivateButton(i);
+                            else
+                                buttons[i].gameObject.SetActive(false);
+                        }
+                        // requires only event
+                        else if(currentDialogue.Choices[i].NeedsEventCheck != null)
+                        {
+                            if(currentDialogue.Choices[i].NeedsEventCheck.eventHasHappened)
+                                ActivateButton(i);
+                            else
+                                buttons[i].gameObject.SetActive(false);
+                        }
+                    }
                 }
                 else
                     buttons[i].gameObject.SetActive(false);
@@ -77,9 +99,15 @@ public class DialogueScript : MonoBehaviour
         }
     }
 
+    private void ActivateButton(int index)
+    {
+        buttons[index].gameObject.SetActive(true);
+        buttons[index].GetComponentInChildren<TMP_Text>().text = currentDialogue.Choices[index].Text;
+    }
+
     public void OnOptionChosen(int choiceIndex)
     {
-        Debug.Log("Option chosen: " + choiceIndex);
+        //Debug.Log("Option chosen: " + choiceIndex);
         DSDialogueSO nextDialogue = currentDialogue.Choices[choiceIndex].NextDialogue;
 
         // no more dialogues

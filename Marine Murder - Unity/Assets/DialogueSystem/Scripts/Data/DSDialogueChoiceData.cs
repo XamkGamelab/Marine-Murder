@@ -13,5 +13,6 @@ namespace DS.Data
 
         //added stuff
         [field: SerializeField] public ItemSO NeedsItem { get; set; }
+        [field: SerializeField] public EventCheckSO NeedsEventCheck { get; set; }
     }
 }

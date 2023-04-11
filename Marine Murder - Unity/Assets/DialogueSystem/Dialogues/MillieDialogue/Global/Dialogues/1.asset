@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f262818b55b0f4418296bad0176bdab, type: 3}
+  m_Name: 1
+  m_EditorClassIdentifier: 
+  <DialogueName>k__BackingField: 1
+  <Text>k__BackingField: ' '
+  <Choices>k__BackingField:
+  - <Text>k__BackingField: How are you?
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 031c891c85b1937459c8c763d22a1fe5, type: 2}
+    <NeedsItem>k__BackingField: {fileID: 0}
+    <NeedsEventCheck>k__BackingField: {fileID: 0}
+  - <Text>k__BackingField: What happened?
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 5961df67a4b69ad4992d614ac1216f8c, type: 2}
+    <NeedsItem>k__BackingField: {fileID: 0}
+    <NeedsEventCheck>k__BackingField: {fileID: 0}
+  - <Text>k__BackingField: Relationship with Victor
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: a99dd67f9bb56a44b851e0930913c44d, type: 2}
+    <NeedsItem>k__BackingField: {fileID: 0}
+    <NeedsEventCheck>k__BackingField: {fileID: 0}
+  - <Text>k__BackingField: Microscope
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 053b5b16f07690e4ea5548da629e915d, type: 2}
+    <NeedsItem>k__BackingField: {fileID: 0}
+    <NeedsEventCheck>k__BackingField: {fileID: 11400000, guid: a2fc5e8b38d50ad40aad53571c860f8f, type: 2}
+  - <Text>k__BackingField: Crystal
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: abcddce781a914c4c9ce7561f7236de7, type: 2}
+    <NeedsItem>k__BackingField: {fileID: 11400000, guid: 32c4e866ece9f7843b5c7e1f1ddced5c, type: 2}
+    <NeedsEventCheck>k__BackingField: {fileID: 0}
+  - <Text>k__BackingField: '*Leave*'
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: a68cdaea2aabb2643bdc6f8d3fddd0ed, type: 2}
+    <NeedsItem>k__BackingField: {fileID: 0}
+    <NeedsEventCheck>k__BackingField: {fileID: 0}
+  <DialogueType>k__BackingField: 1
+  <IsStartingDialogue>k__BackingField: 1

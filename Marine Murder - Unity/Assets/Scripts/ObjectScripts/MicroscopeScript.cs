@@ -5,6 +5,7 @@ using UnityEngine;
 public class MicroscopeScript : MonoBehaviour, IInteract
 {
     [SerializeField] private GameEventSO interactEventSO;
+    [SerializeField] private EventCheckSO microscopeOnTable;
 
     [SerializeField] private string floorInteractText;
     [SerializeField] private string tableInteractText;
@@ -46,6 +47,7 @@ public class MicroscopeScript : MonoBehaviour, IInteract
             gameObject.transform.Rotate(new Vector3(0, 0, 180), Space.Self);
 
             interactEventSO.Raise();
+            microscopeOnTable.eventHasHappened = true;
             onFloor = false;
         }
         else

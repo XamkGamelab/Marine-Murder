@@ -18,11 +18,14 @@ MonoBehaviour:
   - <Text>k__BackingField: First choice
     <NextDialogue>k__BackingField: {fileID: 11400000, guid: 7a7c2f137c500644bbe47948e8a16f28, type: 2}
     <NeedsItem>k__BackingField: {fileID: 0}
+    <NeedsEventCheck>k__BackingField: {fileID: 0}
   - <Text>k__BackingField: Second choice
     <NextDialogue>k__BackingField: {fileID: 11400000, guid: f25398e291707534dba172dafdf9790c, type: 2}
     <NeedsItem>k__BackingField: {fileID: 0}
+    <NeedsEventCheck>k__BackingField: {fileID: 0}
   - <Text>k__BackingField: Third choice
     <NextDialogue>k__BackingField: {fileID: 11400000, guid: fd8a7178659cf0846be9c428b6326dea, type: 2}
     <NeedsItem>k__BackingField: {fileID: 11400000, guid: 803ef9ed470fbe849b0da4ee81b09bbb, type: 2}
+    <NeedsEventCheck>k__BackingField: {fileID: 11400000, guid: a2fc5e8b38d50ad40aad53571c860f8f, type: 2}
   <DialogueType>k__BackingField: 1
   <IsStartingDialogue>k__BackingField: 0

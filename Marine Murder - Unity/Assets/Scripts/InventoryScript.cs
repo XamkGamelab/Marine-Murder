@@ -13,4 +13,10 @@ public class InventoryScript : MonoBehaviour
         items.Add(item);
         inventoryView.UpdateInvetoryView();
     }
+
+    public void RemoveItem(ItemSO item)
+    {
+        items.Remove(item);
+        inventoryView.UpdateInvetoryView();
+    }
 }
