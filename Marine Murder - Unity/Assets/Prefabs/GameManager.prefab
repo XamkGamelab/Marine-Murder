@@ -45,12 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9121f254cf41e694c8a9d5fcd552bc01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstPersonInputModule: {fileID: 0}
+  inputSystemUIInputModule: {fileID: 0}
+  inventory: {fileID: 0}
   textUI: {fileID: 0}
   choiceButtonParent: {fileID: 0}
   textArea: {fileID: 0}
   endDialogue: {fileID: 11400000, guid: e754179d65f5d4743b8b14cfd1c69311, type: 2}
   crosshair: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!114 &1739319231
 MonoBehaviour:
   m_ObjectHideFlags: 0
