@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CodeLock_button_material
+  m_Name: Wall
   m_Shader: {fileID: 4800000, guid: 2bc7e638442816241bcdfbec60fdd508, type: 3}
   m_ValidKeywords:
   - _DIFFUSELIGHTINGSTYLE_STEPPED
@@ -82,6 +82,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecularTexture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -105,11 +109,13 @@ Material:
     - _AmbientShadowStrength: 0
     - _BaseReflectStrength: 0.5
     - _Blend: 0
-    - _BlendOp: 0
     - _BumpScale: 1
+    - _ClearCoatMask: 0
+    - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
     - _CutoffEnabled: 0
+    - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DiffuseCategory: 0
     - _DiffuseHatching: 0
@@ -121,9 +127,10 @@ Material:
     - _DiffuseTextureSize: 1
     - _DstBlend: 0
     - _Emission: 0
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
+    - _EnvironmentReflections: 1
+    - _GlossMapScale: 0
+    - _Glossiness: 0
+    - _GlossyReflections: 0
     - _InvertShadowedLines: 1
     - _KeepLinesThicc: 1
     - _LIGHTINGFOLDOUT: 0
@@ -135,15 +142,16 @@ Material:
     - _MinMaxDiffEdge: 0
     - _MinMaxPaintEdge: 0
     - _MinMaxSpecEdge: 0
-    - _Mode: 0
     - _NormalMapStr: 1
     - _OcclusionStrength: 1
-    - _Parallax: 0.02
+    - _Parallax: 0.005
     - _QueueOffset: 0
+    - _ReceiveShadows: 1
     - _ReflectionsCategory: 0
     - _ReflectionsEnabled: 1
     - _ScreenStableDistanceScale: 0
     - _ScreenStableDistanceScaleSpec: 0
+    - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _Spacer: 0
     - _SpecularCategory: 0
@@ -158,17 +166,31 @@ Material:
     - _SrcBlend: 1
     - _Surface: 0
     - _TEXTURESFOLDOUT: 0
-    - _UVSec: 0
+    - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.7075472, g: 0, b: 0, a: 1}
+    - _Color: {r: 0, g: 0.2, b: 0.3529412, a: 1}
     - _DiffuseEdge: {r: 0, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HatchingRanges: {r: 0.33, g: 0.66, b: 1, a: 1}
     - _HatchingRangesSpec: {r: 0.33, g: 0.66, b: 1, a: 1}
     - _PaintMaskEdges: {r: 0, g: 1, b: 0, a: 0}
     - _ReflectionFresnelParams: {r: 0.5, g: 0.05, b: 0.297, a: 0.85}
+    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _SpecularEdge: {r: 0, g: 1, b: 0, a: 0}
     - _TilingOffset: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!114 &967894600803290307
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
