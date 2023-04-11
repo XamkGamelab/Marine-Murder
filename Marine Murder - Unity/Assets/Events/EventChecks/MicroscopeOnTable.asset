@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bc2f55da8ea8af46abb5cc2140fc94e, type: 3}
   m_Name: MicroscopeOnTable
   m_EditorClassIdentifier: 
-  <eventHasHappened>k__BackingField: 0
+  <eventHasHappened>k__BackingField: 1

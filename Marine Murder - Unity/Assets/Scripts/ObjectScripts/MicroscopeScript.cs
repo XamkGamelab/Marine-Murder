@@ -44,7 +44,6 @@ public class MicroscopeScript : MonoBehaviour, IInteract
             Debug.Log("Interacted with microscope");
             gameObject.transform.position = microscopePlace.position;
             gameObject.transform.rotation = microscopePlace.rotation;
-            gameObject.transform.Rotate(new Vector3(0, 0, 180), Space.Self);
 
             interactEventSO.Raise();
             microscopeOnTable.eventHasHappened = true;

@@ -6,4 +6,9 @@ using UnityEngine;
 public class EventCheckSO : ScriptableObject
 {
     [field: SerializeField] public bool eventHasHappened { get; set; }
+
+    private void OnEnable()
+    {
+        eventHasHappened = false;
+    }
 }

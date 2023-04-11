@@ -168,7 +168,6 @@ namespace StarterAssets
                     // view is withing the allowed area so can move
                     if (cinemachineTargetPitch < 16f && cinemachineTargetPitch > -8f && cinemachineTargetYaw > -11f && cinemachineTargetYaw < 11f)
                     {
-
                         // Update Cinemachine camera target pitch
                         codeLockVirtualCamera.transform.localRotation = Quaternion.Euler(cinemachineTargetPitch, cinemachineTargetYaw + 180f, 0.0f);
                     }
