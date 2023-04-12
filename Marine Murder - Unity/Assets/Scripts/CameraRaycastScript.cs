@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 using StarterAssets;
+using UnityEngine.EventSystems;
 
 public class CameraRaycastScript : MonoBehaviour
 {
@@ -19,7 +20,12 @@ public class CameraRaycastScript : MonoBehaviour
     [SerializeField] private Button examineButton;
     [SerializeField] private TMP_Text interactLookAtText;
 
-    private bool Key;
+    [SerializeField] GraphicRaycaster m_Raycaster;
+    PointerEventData m_PointerEventData;
+    [SerializeField] EventSystem m_EventSystem;
+    [SerializeField] RectTransform canvasRect;
+
+    public bool Key;
     private new Camera camera;
     private GameObject target;
 
@@ -42,12 +48,33 @@ public class CameraRaycastScript : MonoBehaviour
     {
         RaycastHit hit;
         Ray forwardRay = camera.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
+
         // Bit shift the index of the layer (6) to get a bit mask, the "Interactables" layer
         // This will cast rays only against colliders in layer 6.
-        int layerMask = 1 << 6;
+        //int layerMask = 1 << 6;
+        int layerMask1 = 1 << 5;
+        int layerMask2 = 1 << 6;
+        int layerMask = layerMask1 | layerMask2;
+
+
+
+        //Set up the new Pointer Event
+        m_PointerEventData = new PointerEventData(m_EventSystem);
+        //Set the Pointer Event Position to that of the game object
+        m_PointerEventData.position = Input.mousePosition;
+
+        //Create a list of Raycast Results
+        List<RaycastResult> results = new List<RaycastResult>();
+
+        //Raycast using the Graphics Raycaster and mouse click position
+        m_Raycaster.Raycast(m_PointerEventData, results);
+
+        //if (results.Count > 0) Debug.Log("Hit " + results[0].gameObject.name);
+
+
 
         // if hit something on interactables layer
-        if (Physics.Raycast(forwardRay, out hit, raycastDistance, layerMask))
+        if (Physics.Raycast(forwardRay, out hit, raycastDistance, layerMask2))
         {
             // if hit something with IInteract component
             if (hit.transform.gameObject.TryGetComponent<IInteract>(out IInteract interaction))
@@ -56,8 +83,10 @@ public class CameraRaycastScript : MonoBehaviour
                 if (hit.transform.gameObject.TryGetComponent<Outline>(out Outline outline))
                 {
                     // no target -> set target to hit object & activate highlight panel
-                    if (target == null)
+                    if (target == null || target != hit.transform.gameObject)
                     {
+                        ResetTarget();
+
                         target = hit.transform.gameObject;
                         outline.enabled = true;
 
@@ -75,6 +104,14 @@ public class CameraRaycastScript : MonoBehaviour
                 HighlighPanelPositionUpdate();
             }
         }
+        // player is hovering over the highlight panel so update it's position
+        else if (results.Count > 0)
+        {
+            if (target)
+                HighlighPanelPositionUpdate();
+            else
+                ResetTarget();
+        }
         // did not hit anything on interactables layer and key is true
         else if (Key == true)
             ResetTarget();
@@ -83,11 +120,10 @@ public class CameraRaycastScript : MonoBehaviour
     private void ResetTarget()
     {
         if (target != null)
-        {
             target.GetComponent<Outline>().enabled = false;
-            target = null;
-            highlightPanel.SetActive(false);
-        }
+
+        target = null;
+        highlightPanel.SetActive(false);
         Key = false;
 
         interactButton.onClick.RemoveAllListeners();

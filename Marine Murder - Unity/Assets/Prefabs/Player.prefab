@@ -153,6 +153,9 @@ MonoBehaviour:
   interactButton: {fileID: 0}
   examineButton: {fileID: 0}
   interactLookAtText: {fileID: 0}
+  m_Raycaster: {fileID: 0}
+  m_EventSystem: {fileID: 0}
+  canvasRect: {fileID: 0}
 --- !u!114 &1045194666
 MonoBehaviour:
   m_ObjectHideFlags: 0
