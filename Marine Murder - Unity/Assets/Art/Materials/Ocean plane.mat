@@ -7,25 +7,16 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Doors
-  m_Shader: {fileID: 4800000, guid: 2bc7e638442816241bcdfbec60fdd508, type: 3}
-  m_ValidKeywords:
-  - _DIFFUSELIGHTINGSTYLE_STEPPED
-  - _DIFFUSETEXTUREMAPPING_SCREENSTABLE
-  - _REFLECTIONSENABLED_ON
-  - _SPECULARLIGHTINGSTYLE_BASIC
-  - _SPECULARTEXTUREMAPPING_SCREENSTABLE
-  m_InvalidKeywords:
-  - _DIFFUSEHATCHING_SINGLECHANNEL
-  - _INVERTSHADOWEDLINES_ON
-  - _KEEPLINESTHICC_ON
-  - _SPECULARHATCHING_SINGLECHANNEL
-  - _SPECULARTYPE_COOKTORRANCE
+  m_Name: Ocean plane
+  m_Shader: {fileID: 4800000, guid: 650dd9526735d5b46b79224bc6e94025, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -63,7 +54,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 1123145a48ae18b4f8ff1993918169da, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap:
@@ -109,10 +100,11 @@ Material:
     - _AmbientShadowStrength: 0
     - _BaseReflectStrength: 0.5
     - _Blend: 0
+    - _BlendOp: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Cull: 0
+    - _Cull: 2
     - _Cutoff: 0.5
     - _CutoffEnabled: 0
     - _DetailAlbedoMapScale: 1
@@ -121,7 +113,7 @@ Material:
     - _DiffuseHatching: 0
     - _DiffuseLightingStyle: 0
     - _DiffuseRim: 0.1
-    - _DiffuseSteps: 4
+    - _DiffuseSteps: 1
     - _DiffuseTextureContrast: 1
     - _DiffuseTextureMapping: 2
     - _DiffuseTextureSize: 1
@@ -142,13 +134,14 @@ Material:
     - _MinMaxDiffEdge: 0
     - _MinMaxPaintEdge: 0
     - _MinMaxSpecEdge: 0
-    - _NormalMapStr: 0.9
+    - _NormalMapStr: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _ReflectionsCategory: 0
     - _ReflectionsEnabled: 1
+    - _SampleGI: 0
     - _ScreenStableDistanceScale: 0
     - _ScreenStableDistanceScaleSpec: 0
     - _Smoothness: 0.5
@@ -169,10 +162,10 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _BaseColor: {r: 0, g: 0.072834425, b: 0.254717, a: 1}
+    - _Color: {r: 0, g: 0.072834425, b: 0.254717, a: 1}
     - _DiffuseEdge: {r: 0, g: 1, b: 0, a: 0}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _HatchingRanges: {r: 0.33, g: 0.66, b: 1, a: 1}
     - _HatchingRangesSpec: {r: 0.33, g: 0.66, b: 1, a: 1}
     - _PaintMaskEdges: {r: 0, g: 1, b: 0, a: 0}
@@ -181,7 +174,7 @@ Material:
     - _SpecularEdge: {r: 0, g: 1, b: 0, a: 0}
     - _TilingOffset: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &2025021954183222343
+--- !u!114 &6536062523378233105
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
