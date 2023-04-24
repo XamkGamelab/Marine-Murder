@@ -54,4 +54,9 @@ public class ButtonScript : MonoBehaviour, IInteract
     {
         throw new System.NotImplementedException();
     }
+
+    public bool HasInteract()
+    {
+        return true;
+    }
 }

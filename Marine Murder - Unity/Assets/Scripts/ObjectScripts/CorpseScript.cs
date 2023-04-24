@@ -18,7 +18,7 @@ public class CorpseScript : MonoBehaviour, IInteract
 
     public string GetInteractText()
     {
-        return "";
+        return null;
     }
 
     public void Interact()
@@ -28,5 +28,10 @@ public class CorpseScript : MonoBehaviour, IInteract
             inventory.AddItem(IDCardItemSO);
             hasID = false;
         }
+    }
+
+    public bool HasInteract()
+    {
+        return true;
     }
 }

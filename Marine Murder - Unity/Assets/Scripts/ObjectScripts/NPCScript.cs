@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using StarterAssets;
 
-public class NPCScript : MonoBehaviour , IInteract
+public class NPCScript : MonoBehaviour , IDirectInteract
 {
     [SerializeField] private DSDialogueSO startingNode;
     [SerializeField] private DialogueScript gameManager;
@@ -20,9 +20,9 @@ public class NPCScript : MonoBehaviour , IInteract
         throw new System.NotImplementedException();
     }
 
-    public void Interact()
+    public void Interact(PlayerSM playerSM)
     {
         gameManager.StartDialogue(startingNode);
-        firstPersonController.playerState = PlayerState.dialogue;
+        playerSM.ChangeState(playerSM.dialogueState);
     }
 }

@@ -20,6 +20,7 @@ public class CodeLockScript : MonoBehaviour , IInteract
 
     [SerializeField] private GameObject lockCamera;
     [SerializeField] private GameManagerScript gameManager;
+    [SerializeField] private PlayerSM playerSM;
 
 
     private int[] givenNumber;
@@ -63,6 +64,8 @@ public class CodeLockScript : MonoBehaviour , IInteract
                     index = 0;
                     locked = false;
                     lockUnlocked.Raise();
+                    gameObject.layer = 0;
+                    playerSM.ChangeState(playerSM.defaultState);
                 }
                 else
                 {
@@ -90,8 +93,10 @@ public class CodeLockScript : MonoBehaviour , IInteract
 
     public void Interact()
     {
-        BoxCollider collider = GetComponent<BoxCollider>();
-        gameManager.ToggleObjectFocus(lockCamera, collider, 0f, true);
+        //BoxCollider collider = GetComponent<BoxCollider>();
+        //gameManager.ToggleObjectFocus(lockCamera, collider, 0f, true);
+
+        playerSM.ChangeState(playerSM.codelockZoomState, lockCamera, this.gameObject);
     }
 
     public string GetExamineText()
@@ -101,6 +106,11 @@ public class CodeLockScript : MonoBehaviour , IInteract
 
     public string GetInteractText()
     {
-        throw new System.NotImplementedException();
+        return null;
+    }
+
+    public bool HasInteract()
+    {
+        return true;
     }
 }

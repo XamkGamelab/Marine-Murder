@@ -52,9 +52,9 @@ namespace StarterAssets
         public float BottomClamp = -90.0f;
 
 
-        public PlayerState playerState = PlayerState.normal; // controlling character or viewing code lock
         // for viewing code lock
-        public GameObject codeLockVirtualCamera;
+        [SerializeField] private GameObject codeLockVirtualCamera;
+        [SerializeField] private PlayerSM playerSM;
         [HideInInspector]
         float cinemachineTargetYaw;
 
@@ -121,7 +121,7 @@ namespace StarterAssets
         {
             JumpAndGravity();
             GroundedCheck();
-            if (playerState == PlayerState.normal)
+            if (playerSM.currentState == playerSM.defaultState)
                 Move();
         }
 
@@ -140,47 +140,15 @@ namespace StarterAssets
         private void CameraRotation()
         {
             // if there is an input
-            if (_input.look.sqrMagnitude >= _threshold && playerState != PlayerState.dialogue)
+            if (_input.look.sqrMagnitude >= _threshold)
             {
+                // Most of this functionality was transferred to the state machine
+
+
                 //Don't multiply mouse input by Time.deltaTime
                 float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 
-                cinemachineTargetPitch += _input.look.y * RotationSpeed * deltaTimeMultiplier;
-                _rotationVelocity = _input.look.x * RotationSpeed * deltaTimeMultiplier;
-
-                // clamp our pitch rotation
-                cinemachineTargetPitch = ClampAngle(cinemachineTargetPitch, BottomClamp, TopClamp);
-
-                // player is using the normal controller
-                if (playerState == PlayerState.normal)
-                {
-                    // Update Cinemachine camera target pitch
-                    CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(cinemachineTargetPitch, 0.0f, 0.0f);
-
-                    // rotate the player left and right
-                    transform.Rotate(Vector3.up * _rotationVelocity);
-                }
-                // player is viewing the code lock
-                else if (playerState == PlayerState.codeLock)
-                {
-                    cinemachineTargetYaw += _input.look.x * RotationSpeed * deltaTimeMultiplier;
-
-                    // view is withing the allowed area so can move
-                    if (cinemachineTargetPitch < 16f && cinemachineTargetPitch > -8f && cinemachineTargetYaw > -11f && cinemachineTargetYaw < 11f)
-                    {
-                        // Update Cinemachine camera target pitch
-                        codeLockVirtualCamera.transform.localRotation = Quaternion.Euler(cinemachineTargetPitch, cinemachineTargetYaw + 180f, 0.0f);
-                    }
-                    // view is trying to go outside allowed area so move back
-                    else
-                    {
-                        cinemachineTargetPitch -= _input.look.y * RotationSpeed * deltaTimeMultiplier;
-                        cinemachineTargetYaw -= _input.look.x * RotationSpeed * deltaTimeMultiplier;
-
-                        // clamp our pitch rotation
-                        cinemachineTargetPitch = ClampAngle(cinemachineTargetPitch, BottomClamp, TopClamp);
-                    }
-                }
+                playerSM.currentState.CameraRotation(_input, RotationSpeed, deltaTimeMultiplier, BottomClamp, TopClamp, CinemachineCameraTarget, transform);
             }
         }
 
@@ -299,7 +267,7 @@ namespace StarterAssets
         }
         public void OnEndDialogue()
         {
-            playerState = PlayerState.normal;
+            playerSM.ChangeState(playerSM.defaultState);
         }
     }
 

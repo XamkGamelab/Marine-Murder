@@ -32,7 +32,7 @@ public class CabinetDoorScript : MonoBehaviour, IInteract
 
     public string GetInteractText()
     {
-        return "";
+        return null;
     }
 
     public void Interact()
@@ -80,5 +80,10 @@ public class CabinetDoorScript : MonoBehaviour, IInteract
             yield return null;
         }
         doorClosed = !doorClosed;
+    }
+
+    public bool HasInteract()
+    {
+        return true;
     }
 }

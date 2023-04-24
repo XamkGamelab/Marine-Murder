@@ -9,23 +9,34 @@ using UnityEngine.EventSystems;
 
 public class CameraRaycastScript : MonoBehaviour
 {
+    [Header("Changeable variables")]
+    [Space(5)]
     [SerializeField] private float raycastDistance = 10f;
-    [SerializeField] private FirstPersonController firstPersonController;
+    [SerializeField] private float textPanelDisappearTimer = 2f;
+    [Tooltip("Value between 0 and 1")]
+    [SerializeField] private float zoomInPercentage = 0.5f;
 
-    [SerializeField] private GameObject interactionLookAtGO;
+    [Header("Don't change these")]
+    [Space(5)]
+    [SerializeField] private PlayerSM playerSM;
+    [SerializeField] private FirstPersonController firstPersonController;
+    [SerializeField] private GameObject playerFollowCamera;
+    [SerializeField] private GameObject zoomVirtualCamera;
+
+    [SerializeField] private GameObject interactionExamineGO;
     [SerializeField] private GameObject highlightPanel;
-    [SerializeField] private GameObject textPanel;
+    [SerializeField] private GameObject interactExamineTextPanel;
 
     [SerializeField] private Button interactButton;
     [SerializeField] private Button examineButton;
-    [SerializeField] private TMP_Text interactLookAtText;
+    [SerializeField] private TMP_Text interactExamineText;
 
     [SerializeField] GraphicRaycaster m_Raycaster;
     PointerEventData m_PointerEventData;
     [SerializeField] EventSystem m_EventSystem;
     [SerializeField] RectTransform canvasRect;
 
-    public bool Key;
+    private bool Key;
     private new Camera camera;
     private GameObject target;
 
@@ -40,8 +51,8 @@ public class CameraRaycastScript : MonoBehaviour
     {
         RaycastCheck();
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && textPanel.activeSelf)
-            textPanel.SetActive(false);
+        if (Input.GetKeyDown(KeyCode.Mouse0) && interactExamineTextPanel.activeSelf)
+            ExitExamine();
     }
 
     void RaycastCheck()
@@ -57,7 +68,6 @@ public class CameraRaycastScript : MonoBehaviour
         int layerMask = layerMask1 | layerMask2;
 
 
-
         //Set up the new Pointer Event
         m_PointerEventData = new PointerEventData(m_EventSystem);
         //Set the Pointer Event Position to that of the game object
@@ -68,9 +78,6 @@ public class CameraRaycastScript : MonoBehaviour
 
         //Raycast using the Graphics Raycaster and mouse click position
         m_Raycaster.Raycast(m_PointerEventData, results);
-
-        //if (results.Count > 0) Debug.Log("Hit " + results[0].gameObject.name);
-
 
 
         // if hit something on interactables layer
@@ -143,16 +150,50 @@ public class CameraRaycastScript : MonoBehaviour
 
     private void ExamineResponse()
     {
-        textPanel.SetActive(true);
         if (target.TryGetComponent<IInteract>(out IInteract interaction))
-            interactLookAtText.text = interaction.GetExamineText();
+        {
+            interactExamineTextPanel.SetActive(true);
+            highlightPanel.SetActive(false);
+            interactExamineText.text = interaction.GetExamineText();
+
+            //zoomVirtualCamera.transform.position = Vector3.LerpUnclamped(playerFollowCamera.transform.position, target.transform.position, zoomInPercentage);
+            //zoomVirtualCamera.transform.LookAt(target.transform.position);
+
+            //playerFollowCamera.SetActive(false);
+            //zoomVirtualCamera.SetActive(true);
+            playerSM.ChangeState(playerSM.zoomState, zoomVirtualCamera,playerFollowCamera, target, zoomInPercentage);
+        }
+    }
+
+    private void ExitExamine()
+    {
+        interactExamineTextPanel.SetActive(false);
+        highlightPanel.SetActive(true);
+
+        //playerFollowCamera.SetActive(true);
+        //zoomVirtualCamera.SetActive(false);
+        playerSM.ChangeState(playerSM.defaultState);
+    }
+
+    private IEnumerator HideInteractExamineTextPanel()
+    {
+        float timer = 0;
+        while (timer < textPanelDisappearTimer)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        interactExamineTextPanel.SetActive(false);
     }
 
     public void InteractResponse()
     {
         Debug.Log("InteractResponse");
-        textPanel.SetActive(true);
+        interactExamineTextPanel.SetActive(true);
         if (target.TryGetComponent<IInteract>(out IInteract interaction))
-            interactLookAtText.text = interaction.GetInteractText();
+        {
+            interactExamineText.text = interaction.GetInteractText();
+            StartCoroutine(HideInteractExamineTextPanel());
+        }
     }
 }

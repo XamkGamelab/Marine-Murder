@@ -27,4 +27,9 @@ public class CrystalScript : MonoBehaviour, IInteract
         interactEvent.Raise();
         Destroy(this.gameObject);
     }
+
+    public bool HasInteract()
+    {
+        return true;
+    }
 }

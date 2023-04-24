@@ -22,6 +22,11 @@ public class BoxScript : MonoBehaviour, IInteract
         return interactText;
     }
 
+    public bool HasInteract()
+    {
+        return true;
+    }
+
     public void Interact()
     {
         inventory.AddItem(boxSO);

@@ -25,6 +25,7 @@ namespace StarterAssets
 		[SerializeField] private GameManagerScript gameManager;
 		[SerializeField] private FirstPersonController firstPersonController;
 		[SerializeField] private DialogueScript dialogueScript;
+		[SerializeField] private PlayerSM playerSM;
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 		public void OnMove(InputValue value)
@@ -52,44 +53,45 @@ namespace StarterAssets
 
 		public void OnInteract(InputValue value)
         {
-			// handles interaction with codelock buttons
-			if (firstPersonController.playerState == PlayerState.codeLock)
-			{
-				// Bit shift the index of the layer (6) to get a bit mask, the "Interactables" layer
-				// This will cast rays only against colliders in layer 6.
-				int layerMask = 1 << 6;
+			playerSM.currentState.OnInteract(mainCamera, dialogueScript);
+			//// handles interaction with codelock buttons
+			//if (firstPersonController.playerState == PlayerState.codeLock)
+			//{
+			//	// Bit shift the index of the layer (6) to get a bit mask, the "Interactables" layer
+			//	// This will cast rays only against colliders in layer 6.
+			//	int layerMask = 1 << 6;
 
-				RaycastHit hit;
-				// Does the ray intersect any objects in the "Interactables" layer
-				if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
-				{
-					hit.transform.gameObject.GetComponent<IInteract>().Interact();
-				}
-			}
-			// handles interacting with NPC
-			else if (firstPersonController.playerState != PlayerState.dialogue)
-			{
-				// Bit shift the index of the layer (7) to get a bit mask, the "Dialogue" layer
-				// This will cast rays only against colliders in layer 7.
-				int layerMask = 1 << 7;
+			//	RaycastHit hit;
+			//	// Does the ray intersect any objects in the "Interactables" layer
+			//	if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+			//	{
+			//		hit.transform.gameObject.GetComponent<IInteract>().Interact();
+			//	}
+			//}
+			//// handles interacting with NPC
+			//else if (firstPersonController.playerState != PlayerState.dialogue)
+			//{
+			//	// Bit shift the index of the layer (7) to get a bit mask, the "Dialogue" layer
+			//	// This will cast rays only against colliders in layer 7.
+			//	int layerMask = 1 << 7;
 
-				RaycastHit hit;
-				// Does the ray intersect any objects in the "Interactables" layer
-				if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
-				{
-					hit.transform.gameObject.GetComponent<IInteract>().Interact();
-				}
-			}
-			else if (firstPersonController.playerState == PlayerState.dialogue)
-            {
-                Debug.Log("Next dialogue");
-                dialogueScript.NextDialogue();
-            }
+			//	RaycastHit hit;
+			//	// Does the ray intersect any objects in the "Interactables" layer
+			//	if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+			//	{
+			//		hit.transform.gameObject.GetComponent<IInteract>().Interact();
+			//	}
+			//}
+			//else if (firstPersonController.playerState == PlayerState.dialogue)
+   //         {
+   //             Debug.Log("Next dialogue");
+   //             dialogueScript.NextDialogue();
+   //         }
         }
 
 		public void OnExitFocus(InputValue value)
         {
-			gameManager.ExitFocus();
+			//gameManager.ExitFocus();
         }
 #endif
 

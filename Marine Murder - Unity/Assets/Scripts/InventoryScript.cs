@@ -7,16 +7,21 @@ public class InventoryScript : MonoBehaviour
     public List<ItemSO> items;
 
     [SerializeField] private InventoryViewScript inventoryView;
+    [SerializeField] AudioSource audioSource;
 
     public void AddItem(ItemSO item)
     {
         items.Add(item);
         inventoryView.UpdateInvetoryView();
+        audioSource.Play();
     }
 
     public void RemoveItem(ItemSO item)
     {
-        items.Remove(item);
-        inventoryView.UpdateInvetoryView();
+        if (items.Contains(item))
+        {
+            items.Remove(item);
+            inventoryView.UpdateInvetoryView();
+        }
     }
 }
