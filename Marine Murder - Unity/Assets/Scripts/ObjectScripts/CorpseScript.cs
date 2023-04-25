@@ -49,9 +49,4 @@ public class CorpseScript : MonoBehaviour, IInteract
     {
         return true;
     }
-
-    public bool HasInteract()
-    {
-        return true;
-    }
 }
