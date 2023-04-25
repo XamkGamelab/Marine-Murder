@@ -7,17 +7,19 @@ using StarterAssets;
 
 public class CodeLockScript : MonoBehaviour , IInteract
 {
+    [Header("Can change")]
     [SerializeField] private string examineText;
 
     // code lock stuff
-    [SerializeField] private int[] correctNumber;
     [SerializeField] private string defaultText;
-    [SerializeField] private GameEventSO lockUnlocked;
+    [SerializeField] private int[] correctNumber;
 
     // button stuff
     [SerializeField] private float buttonMoveAmount = 0.1f;
     [SerializeField] private float buttonMoveTime = 0.5f;
-
+    [Space(10)]
+    [Header("Don't change")]
+    [SerializeField] private GameEventSO lockUnlocked;
     [SerializeField] private GameObject lockCamera;
     [SerializeField] private GameManagerScript gameManager;
     [SerializeField] private PlayerSM playerSM;

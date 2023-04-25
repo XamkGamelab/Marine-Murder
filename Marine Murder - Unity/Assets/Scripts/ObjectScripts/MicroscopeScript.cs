@@ -4,16 +4,7 @@ using UnityEngine;
 
 public class MicroscopeScript : MonoBehaviour, IInteract
 {
-    [SerializeField] private GameEventSO interactEventSO;
-    [SerializeField] private GameEventSO microscopeFixedEvent;
-    [SerializeField] private EventCheckSO microscopeOnTable;
-    [SerializeField] private EventCheckSO objectivePicked;
-    [SerializeField] private InventoryScript inventory;
-    [SerializeField] private ItemSO correctItemSO;
-
-    public PlayerSM playerSM;
-    public GameObject puzzleCamera;
-
+    [Header("Can change")]
     // Microscope on floor
     [SerializeField] private string floorInteractText;
     [SerializeField] private string floorExamineText;
@@ -28,6 +19,18 @@ public class MicroscopeScript : MonoBehaviour, IInteract
     [SerializeField] private string wrongObjectiveText;
 
     [SerializeField] private Transform microscopePlace;
+    [Space(10)]
+    [Header("Don't change")]
+    [SerializeField] private GameEventSO interactEventSO;
+    [SerializeField] private GameEventSO microscopeFixedEvent;
+    [SerializeField] private EventCheckSO microscopeOnTable;
+    [SerializeField] private EventCheckSO objectivePicked;
+    [SerializeField] private InventoryScript inventory;
+    [SerializeField] private ItemSO correctItemSO;
+
+    public PlayerSM playerSM;
+    public GameObject puzzleCamera;
+
 
     private bool onFloor = true;
     private bool broken = true;

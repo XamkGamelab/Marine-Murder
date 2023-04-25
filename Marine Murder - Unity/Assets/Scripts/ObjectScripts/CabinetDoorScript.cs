@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class CabinetDoorScript : MonoBehaviour, IInteract
 {
-    [SerializeField] private PlayerSM playerSM;
+    [Header("Can change")]
     [SerializeField] private string examineText;
-    //[SerializeField] private string examineText2;
     [SerializeField] private string lockedInteractText;
 
     [SerializeField] private float targetRotationY;
     [SerializeField] private float moveTime;
     [SerializeField] private float closedRotationY;
     [SerializeField] private float openRotationY;
+    [Space(10)]
+    [Header("Don't change")]
+    [SerializeField] private PlayerSM playerSM;
 
     private bool helper;
-    public bool doorLocked = true;
-    public bool doorClosed = true;
+    [HideInInspector] public bool doorLocked = true;
+    [HideInInspector] public bool doorClosed = true;
 
     public string GetExamineText()
     {

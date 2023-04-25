@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class CorpseScript : MonoBehaviour, IInteract
 {
+    [Header("Can change")]
+    [SerializeField] private string examineText;
+    [Space(10)]
+    [Header("Don't change")]
     [SerializeField] private PlayerSM playerSM;
     [SerializeField] private ItemSO IDCardItemSO;
     [SerializeField] private InventoryScript inventory;
-
-    [SerializeField] private string examineText;
 
     private bool hasID = true;
 

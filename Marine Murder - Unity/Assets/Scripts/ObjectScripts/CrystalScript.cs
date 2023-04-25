@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class CrystalScript : MonoBehaviour, IInteract
 {
+    [Header("Can change")]
+    [SerializeField] private string examineText;
+    [SerializeField] private string interactText;
+    [Space(10)]
+    [Header("Don't change")]
     [SerializeField] private PlayerSM playerSM;
     [SerializeField] private ItemSO crystalSO;
     [SerializeField] private InventoryScript inventory;
     [SerializeField] private GameEventSO interactEvent;
-
-    [SerializeField] private string examineText;
-    [SerializeField] private string interactText;
 
     public string GetExamineText()
     {

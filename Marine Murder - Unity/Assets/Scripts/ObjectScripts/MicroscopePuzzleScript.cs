@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class MicroscopePuzzleScript : MonoBehaviour
 {
+    [Header("Can change")]
     [SerializeField] private List<RotationDirection> correctRotationOrder;
-    [SerializeField] private PlayerSM playerSM;
-    [SerializeField] private GameObject objective;
-    [SerializeField] private GameEventSO puzzleSolvedEvent;
     [SerializeField] private float objectiveMoveTime = 0.5f;
     [SerializeField] private float objectiveResetTime = 1f;
     [SerializeField] private float totalRotation = 180f;
+    [Space(10)]
+    [Header("Don't change")]
+    [SerializeField] private PlayerSM playerSM;
+    [SerializeField] private GameObject objective;
+    [SerializeField] private GameEventSO puzzleSolvedEvent;
     [SerializeField] private float startingZ;
     [SerializeField] private float targetZ;
 

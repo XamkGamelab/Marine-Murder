@@ -8,6 +8,13 @@ using UnityEngine.InputSystem.UI;
 
 public class PlayerSM : StateMachine
 {
+    [Header("Can change")]
+    public float RaycastDistance;
+    public float ZoomInPercentage = 0.5f;
+
+    [SerializeField] private float textPanelDisappearTimer = 2f;
+    [Space(10)]
+    [Header("Don't change")]
     public GameObject PlayerFollowCamera;
     public GameObject HighlightPanel;
     public GameObject InteractExamineTextPanel;
@@ -29,10 +36,6 @@ public class PlayerSM : StateMachine
     public FirstPersonInputModule firstPersonInputModule;
     public InputSystemUIInputModule inputSystemUIInputModule;
 
-    public float RaycastDistance;
-    public float ZoomInPercentage = 0.5f;
-
-    [SerializeField] private float textPanelDisappearTimer = 2f;
 
     [HideInInspector] public DefaultState defaultState;
     [HideInInspector] public DialogueState dialogueState;

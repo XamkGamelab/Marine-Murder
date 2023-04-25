@@ -5356,10 +5356,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b808c6a644af9ad4b921c68b590077e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  examineText: "Poor guy\u2026 I wonder what happened."
   playerSM: {fileID: 1081178741}
   IDCardItemSO: {fileID: 11400000, guid: 803ef9ed470fbe849b0da4ee81b09bbb, type: 2}
   inventory: {fileID: 983421108}
-  examineText: "Poor guy\u2026 I wonder what happened."
 --- !u!1 &629934659 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c555bfce1e287964e88b11d097b0f2d5, type: 3}
@@ -6483,12 +6483,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctRotationOrder: 000000000100000000000000
-  playerSM: {fileID: 1081178741}
-  objective: {fileID: 2101146516}
-  puzzleSolvedEvent: {fileID: 11400000, guid: 1aed2ea8ecd173e4db7d156a5acf6858, type: 2}
   objectiveMoveTime: 0.5
   objectiveResetTime: 1
   totalRotation: 180
+  playerSM: {fileID: 1081178741}
+  objective: {fileID: 2101146516}
+  puzzleSolvedEvent: {fileID: 11400000, guid: 1aed2ea8ecd173e4db7d156a5acf6858, type: 2}
   startingZ: 0.6949
   targetZ: 0.7341077
 --- !u!114 &848950740
@@ -6503,14 +6503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc00b36ea50e3374fa214ec84347af0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactEventSO: {fileID: 11400000, guid: 2700b922a4efa3d43a818b412dde9ecd, type: 2}
-  microscopeFixedEvent: {fileID: 11400000, guid: f1b8b1747a380a84696e46de75538a2c, type: 2}
-  microscopeOnTable: {fileID: 11400000, guid: a2fc5e8b38d50ad40aad53571c860f8f, type: 2}
-  objectivePicked: {fileID: 11400000, guid: 3bc67d55f1148a0498338a43aa3dc950, type: 2}
-  inventory: {fileID: 983421108}
-  correctItemSO: {fileID: 11400000, guid: 0297d647683997743aefc06772f86864, type: 2}
-  playerSM: {fileID: 1081178741}
-  puzzleCamera: {fileID: 1152925831}
   floorInteractText: I'll put it on the table.
   floorExamineText: Why's this on the floor? It seems broken.
   fixedInteractText: Let's see.
@@ -6520,6 +6512,14 @@ MonoBehaviour:
   correctObjectiveText: Ah! This is it.
   wrongObjectiveText: "Hmmh. This doesn\u2019t look right."
   microscopePlace: {fileID: 359499563}
+  interactEventSO: {fileID: 11400000, guid: 2700b922a4efa3d43a818b412dde9ecd, type: 2}
+  microscopeFixedEvent: {fileID: 11400000, guid: f1b8b1747a380a84696e46de75538a2c, type: 2}
+  microscopeOnTable: {fileID: 11400000, guid: a2fc5e8b38d50ad40aad53571c860f8f, type: 2}
+  objectivePicked: {fileID: 11400000, guid: 3bc67d55f1148a0498338a43aa3dc950, type: 2}
+  inventory: {fileID: 983421108}
+  correctItemSO: {fileID: 11400000, guid: 0297d647683997743aefc06772f86864, type: 2}
+  playerSM: {fileID: 1081178741}
+  puzzleCamera: {fileID: 1152925831}
 --- !u!114 &848950741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7750,6 +7750,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a3ef7e3f89bdb42ade22c41dc755c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RaycastDistance: 3
+  ZoomInPercentage: 0.5
+  textPanelDisappearTimer: 2
   PlayerFollowCamera: {fileID: 2118371290}
   HighlightPanel: {fileID: 667182826}
   InteractExamineTextPanel: {fileID: 1265188337}
@@ -7766,9 +7769,6 @@ MonoBehaviour:
   Raycaster: {fileID: 126680595}
   firstPersonInputModule: {fileID: 8906966}
   inputSystemUIInputModule: {fileID: 8906967}
-  RaycastDistance: 3
-  ZoomInPercentage: 0.5
-  textPanelDisappearTimer: 2
   player: {fileID: 0}
 --- !u!114 &1081178748
 MonoBehaviour:
@@ -9513,39 +9513,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6471122737721630659, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.19138607
       objectReference: {fileID: 0}
     - target: {fileID: 6471122737721630659, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.65
+      value: 1.5085466
       objectReference: {fileID: 0}
     - target: {fileID: 6471122737721630659, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 4.1924047
       objectReference: {fileID: 0}
     - target: {fileID: 6471122737721630659, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -0.2092747
       objectReference: {fileID: 0}
     - target: {fileID: 6471122737721630659, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.20927465
       objectReference: {fileID: 0}
     - target: {fileID: 6471122737721630659, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.6754289
       objectReference: {fileID: 0}
     - target: {fileID: 6471122737721630659, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.67542887
       objectReference: {fileID: 0}
     - target: {fileID: 6471122737721630660, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: far clip plane
-      value: 500
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 6471122737721630660, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: near clip plane
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7929768770654727223, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: playerSM
@@ -11875,11 +11875,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d3a459d5c4fd7c45873ad04a628e49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lidOpenAngle: 90
+  lidOpenTime: 0.5
   playerSM: {fileID: 1081178741}
   zoomCamera: {fileID: 131509324}
   lid: {fileID: 1520490058}
-  lidOpenAngle: 90
-  lidOpenTime: 0.5
 --- !u!114 &1834783145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13869,6 +13869,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: objectiveBox
       objectReference: {fileID: 0}
+    - target: {fileID: 832966858387250153, guid: b62d1a20390c3fc44a3220bf940eb89f, type: 3}
+      propertyPath: playerSM
+      value: 
+      objectReference: {fileID: 1081178741}
     - target: {fileID: 832966858387250153, guid: b62d1a20390c3fc44a3220bf940eb89f, type: 3}
       propertyPath: inventory
       value: 

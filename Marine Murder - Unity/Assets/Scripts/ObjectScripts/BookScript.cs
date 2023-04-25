@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BookScript : MonoBehaviour, IInteract
 {
+    [Header("Don't change")]
     [SerializeField] private PlayerSM playerSM;
     [SerializeField] private GameObject virtualCamera;
 

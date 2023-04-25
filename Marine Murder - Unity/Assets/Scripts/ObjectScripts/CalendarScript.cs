@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CalendarScript : MonoBehaviour, IInteract
 {
+    [Header("Don't change")]
     [SerializeField] private PlayerSM playerSM;
     public string GetExamineText()
     {

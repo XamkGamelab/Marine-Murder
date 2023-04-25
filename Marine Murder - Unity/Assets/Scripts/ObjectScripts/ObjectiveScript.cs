@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObjectiveScript : MonoBehaviour, IDirectInteract
 {
+    [Header("Don't change")]
     public ItemSO ObjectiveSO;
 
     [SerializeField] private InventoryScript inventory;

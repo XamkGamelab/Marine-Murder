@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class BoxScript : MonoBehaviour, IInteract
 {
+    [Header("Can change")]
+    [SerializeField] private string examineText;
+    [SerializeField] private string interactText;
+    [Space(10)]
+    [Header("Don't change")]
     [SerializeField] private PlayerSM playerSM;
     [SerializeField] private GameObject tableSpot;
     [SerializeField] private ItemSO boxSO;
     [SerializeField] private InventoryScript inventory;
     [SerializeField] private GameEventSO interactEvent;
-
-    [SerializeField] private string examineText;
-    [SerializeField] private string interactText;
 
     public string GetExamineText()
     {

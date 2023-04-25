@@ -6,6 +6,7 @@ using StarterAssets;
 
 public class NPCScript : MonoBehaviour , IDirectInteract
 {
+    [Header("Don't change")]
     [SerializeField] private DSDialogueSO startingNode;
     [SerializeField] private DialogueScript gameManager;
     [SerializeField] private FirstPersonController firstPersonController;

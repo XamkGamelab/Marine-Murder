@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ButtonScript : MonoBehaviour, IInteract
 {
+    [Header("Don't change")]
     [SerializeField] private int buttonNumber;
 
     private float buttonMoveAmount, buttonMoveTime;

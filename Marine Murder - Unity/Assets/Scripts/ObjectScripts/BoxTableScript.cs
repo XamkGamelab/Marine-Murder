@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class BoxTableScript : MonoBehaviour, IInteract
 {
+    [Header("Can change")]
+    [SerializeField] private float lidOpenAngle = 90f;
+    [SerializeField] private float lidOpenTime = 0.5f;
+    [Space(10)]
+    [Header("Don't change")]
     [SerializeField] private PlayerSM playerSM;
     [SerializeField] private GameObject zoomCamera;
     [SerializeField] private GameObject lid;
-    [SerializeField] private float lidOpenAngle = 90f;
-    [SerializeField] private float lidOpenTime = 0.5f;
 
     private bool lidIsOpen = false;
 

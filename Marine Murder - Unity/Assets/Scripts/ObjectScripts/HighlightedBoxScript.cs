@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HighlightedBoxScript : MonoBehaviour, IDirectInteract
 {
+    [Header("Don't change")]
     [SerializeField] private GameObject tableBox;
     [SerializeField] private ItemSO boxSO;
     [SerializeField] private InventoryScript inventory;
