@@ -7,6 +7,7 @@ using StarterAssets;
 public class DefaultState : BaseState
 {
     private PlayerSM _sm;
+    private Collider targetCollider;
 
     private bool _key;
     private float _pitch;
@@ -97,6 +98,7 @@ public class DefaultState : BaseState
                         ResetTarget();
 
                         Target = hit.transform.gameObject;
+                        targetCollider = Target.GetComponent<Collider>();
                         outline.enabled = true;
 
                         _key = true;
@@ -158,9 +160,9 @@ public class DefaultState : BaseState
         // update the position on highlight panel if it's active
         if (_sm.HighlightPanel.activeSelf)
         {
-            Vector3 point = _sm.MainCamera.WorldToScreenPoint(Target.transform.position);
+            //Vector3 point = _sm.MainCamera.WorldToScreenPoint(Target.transform.position);
+            Vector3 point = _sm.MainCamera.WorldToScreenPoint(targetCollider.bounds.center);
             _sm.HighlightPanel.transform.position = point;
-
         }
     }
 
