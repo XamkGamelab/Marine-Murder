@@ -7,6 +7,8 @@ public interface IInteract
     public bool HasInteract();
     public void Interact();
     public string GetInteractText();
+    public bool HasExamine();
+    public void Examine();
     public string GetExamineText();
 }
 

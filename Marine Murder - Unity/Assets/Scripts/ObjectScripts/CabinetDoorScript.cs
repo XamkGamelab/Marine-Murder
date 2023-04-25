@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class CabinetDoorScript : MonoBehaviour, IInteract
 {
-    [SerializeField] private string examineText1;
-    [SerializeField] private string examineText2;
+    [SerializeField] private PlayerSM playerSM;
+    [SerializeField] private string examineText;
+    //[SerializeField] private string examineText2;
+    [SerializeField] private string lockedInteractText;
 
     [SerializeField] private float targetRotationY;
     [SerializeField] private float moveTime;
@@ -18,21 +20,25 @@ public class CabinetDoorScript : MonoBehaviour, IInteract
 
     public string GetExamineText()
     {
-        if (helper)
-        {
-            helper = !helper;
-            return examineText1;
-        }
-        else
-        {
-            helper = !helper;
-            return examineText2;
-        }
+        //if (helper)
+        //{
+        //    helper = !helper;
+        //    return examineText1;
+        //}
+        //else
+        //{
+        //    helper = !helper;
+        //    return examineText2;
+        //}
+        return null;
     }
 
     public string GetInteractText()
     {
-        return null;
+        if (doorLocked)
+            return lockedInteractText;
+        else
+            return null;
     }
 
     public void Interact()
@@ -44,6 +50,23 @@ public class CabinetDoorScript : MonoBehaviour, IInteract
             else
                 StartCoroutine(OpenCloseDoor(closedRotationY));
         }
+    }
+
+    public void Examine()
+    {
+        if (doorLocked)
+            playerSM.InteractExamineText.text = examineText;
+
+        playerSM.InteractExamineTextPanel.SetActive(true);
+        playerSM.ChangeState(playerSM.zoomState, playerSM.ZoomVirtualCamera, playerSM.PlayerFollowCamera, this.gameObject, playerSM.ZoomInPercentage);
+    }
+
+    public bool HasExamine()
+    {
+        if (doorLocked)
+            return true;
+        else
+            return false;
     }
 
     public void OnLockUnlocked()

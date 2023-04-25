@@ -7,6 +7,7 @@ public class ButtonScript : MonoBehaviour, IInteract
     [SerializeField] private int buttonNumber;
 
     private float buttonMoveAmount, buttonMoveTime;
+    private bool animating = false;
 
     void Start()
     {
@@ -17,13 +18,15 @@ public class ButtonScript : MonoBehaviour, IInteract
     public void Interact()
     {
         this.transform.GetComponentInParent<CodeLockScript>().EnterNumber(buttonNumber);
-        StartCoroutine(ButtonAnimation());
+        if (!animating)
+            StartCoroutine(ButtonAnimation());
     }
 
     private IEnumerator ButtonAnimation()
     {
         float originalZ = transform.localPosition.z;
         float targetZ = originalZ - buttonMoveAmount;
+        animating = true;
 
         // moves the button back
         while (transform.localPosition.z > targetZ)
@@ -43,6 +46,7 @@ public class ButtonScript : MonoBehaviour, IInteract
         }
         // make sure the button ends in the same position it started at
         transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, originalZ);
+        animating = false;
     }
 
     public string GetExamineText()
@@ -56,6 +60,13 @@ public class ButtonScript : MonoBehaviour, IInteract
     }
 
     public bool HasInteract()
+    {
+        return true;
+    }
+
+    public void Examine() { }
+
+    public bool HasExamine()
     {
         return true;
     }

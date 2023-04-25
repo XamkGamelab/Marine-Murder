@@ -111,8 +111,14 @@ public class DefaultState : BaseState
                         }
                         else
                             _sm.InteractButton.gameObject.SetActive(false);
-
-                        _sm.ExamineButton.onClick.AddListener(this.ExamineResponse);
+                        if (interaction.HasExamine())
+                        {
+                            _sm.ExamineButton.gameObject.SetActive(true);
+                            //_sm.ExamineButton.onClick.AddListener(this.ExamineResponse);
+                            _sm.ExamineButton.onClick.AddListener(interaction.Examine);
+                        }
+                        else
+                            _sm.ExamineButton.gameObject.SetActive(false);
                     }
                 }
                 else

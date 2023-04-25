@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BookScript : MonoBehaviour, IInteract
 {
+    [SerializeField] private PlayerSM playerSM;
+    [SerializeField] private GameObject virtualCamera;
+
     public string GetExamineText()
     {
         return null;
@@ -11,16 +14,26 @@ public class BookScript : MonoBehaviour, IInteract
 
     public string GetInteractText()
     {
-        return null;
+        throw new System.NotImplementedException();
     }
 
     public bool HasInteract()
     {
-        return true;
+        return false;
     }
 
     public void Interact()
     {
+        throw new System.NotImplementedException();
+    }
 
+    public void Examine()
+    {
+        playerSM.ChangeState(playerSM.cameraZoomState, virtualCamera);
+    }
+
+    public bool HasExamine()
+    {
+        return true;
     }
 }

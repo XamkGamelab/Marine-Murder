@@ -99,6 +99,18 @@ public class CodeLockScript : MonoBehaviour , IInteract
         playerSM.ChangeState(playerSM.codelockZoomState, lockCamera, this.gameObject);
     }
 
+    public void Examine()
+    {
+        playerSM.InteractExamineText.text = examineText;
+        playerSM.InteractExamineTextPanel.SetActive(true);
+        playerSM.ChangeState(playerSM.zoomState, playerSM.ZoomVirtualCamera, playerSM.PlayerFollowCamera, this.gameObject, playerSM.ZoomInPercentage);
+    }
+
+    public bool HasExamine()
+    {
+        return true;
+    }
+
     public string GetExamineText()
     {
         return examineText;

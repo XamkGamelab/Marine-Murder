@@ -40,17 +40,27 @@ public class BoxTableScript : MonoBehaviour, IInteract
         }
     }
 
+    public void Examine()
+    {
+        playerSM.ChangeState(playerSM.zoomState, playerSM.ZoomVirtualCamera, playerSM.PlayerFollowCamera, this.gameObject, playerSM.ZoomInPercentage);
+    }
+
     private IEnumerator OpenLid()
     {
         float timer = 0f;
 
-        while(timer < lidOpenTime)
+        while (timer < lidOpenTime)
         {
-            lid.transform.Rotate((1/lidOpenTime) * lidOpenAngle * Time.deltaTime * Vector3.down, Space.Self);
+            lid.transform.Rotate((1 / lidOpenTime) * lidOpenAngle * Time.deltaTime * Vector3.down, Space.Self);
             timer += Time.deltaTime;
             yield return null;
         }
 
         lidIsOpen = true;
+    }
+
+    public bool HasExamine()
+    {
+        return true;
     }
 }

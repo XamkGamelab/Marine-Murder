@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BoxScript : MonoBehaviour, IInteract
 {
+    [SerializeField] private PlayerSM playerSM;
     [SerializeField] private GameObject tableSpot;
     [SerializeField] private ItemSO boxSO;
     [SerializeField] private InventoryScript inventory;
@@ -33,5 +34,17 @@ public class BoxScript : MonoBehaviour, IInteract
         interactEvent.Raise();
         Destroy(this.gameObject);
         tableSpot.SetActive(true);
+    }
+
+    public void Examine()
+    {
+        playerSM.InteractExamineText.text = examineText;
+        playerSM.InteractExamineTextPanel.SetActive(true);
+        playerSM.ChangeState(playerSM.zoomState, playerSM.ZoomVirtualCamera, playerSM.PlayerFollowCamera, this.gameObject, playerSM.ZoomInPercentage);   
+    }
+
+    public bool HasExamine()
+    {
+        return true;
     }
 }

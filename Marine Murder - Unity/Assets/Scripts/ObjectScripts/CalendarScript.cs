@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CalendarScript : MonoBehaviour, IInteract
 {
+    [SerializeField] private PlayerSM playerSM;
     public string GetExamineText()
     {
         return null;
@@ -22,5 +23,15 @@ public class CalendarScript : MonoBehaviour, IInteract
     public void Interact()
     {
         throw new System.NotImplementedException();
+    }
+
+    public void Examine()
+    {
+        playerSM.ChangeState(playerSM.zoomState, playerSM.ZoomVirtualCamera, playerSM.PlayerFollowCamera, this.gameObject, playerSM.ZoomInPercentage);
+    }
+
+    public bool HasExamine()
+    {
+        return true;
     }
 }

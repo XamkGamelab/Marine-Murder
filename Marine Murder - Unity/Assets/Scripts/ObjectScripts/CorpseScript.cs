@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CorpseScript : MonoBehaviour, IInteract
 {
+    [SerializeField] private PlayerSM playerSM;
     [SerializeField] private ItemSO IDCardItemSO;
     [SerializeField] private InventoryScript inventory;
 
@@ -23,11 +24,30 @@ public class CorpseScript : MonoBehaviour, IInteract
 
     public void Interact()
     {
-        if (hasID)
-        {
-            inventory.AddItem(IDCardItemSO);
-            hasID = false;
-        }
+        throw new System.NotImplementedException();
+
+        //if (hasID)
+        //{
+        //    inventory.AddItem(IDCardItemSO);
+        //    hasID = false;
+        //}
+    }
+
+    public bool HasInteract()
+    {
+        return false;
+    }
+
+    public void Examine()
+    {
+        playerSM.InteractExamineText.text = examineText;
+        playerSM.InteractExamineTextPanel.SetActive(true);
+        playerSM.ChangeState(playerSM.zoomState, playerSM.ZoomVirtualCamera, playerSM.PlayerFollowCamera, this.gameObject, playerSM.ZoomInPercentage);
+    }
+
+    public bool HasExamine()
+    {
+        return true;
     }
 
     public bool HasInteract()

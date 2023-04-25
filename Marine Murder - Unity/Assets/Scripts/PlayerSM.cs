@@ -39,6 +39,7 @@ public class PlayerSM : StateMachine
     [HideInInspector] public ZoomState zoomState;
     [HideInInspector] public CodelockZoomState codelockZoomState;
     [HideInInspector] public MicroscopePuzzleState microscopePuzzleState;
+    [HideInInspector] public CameraZoomState cameraZoomState;
 
     [HideInInspector] public GameObject player;
 
@@ -49,6 +50,7 @@ public class PlayerSM : StateMachine
         zoomState = new ZoomState(this);
         codelockZoomState = new CodelockZoomState(this);
         microscopePuzzleState = new MicroscopePuzzleState(this);
+        cameraZoomState = new CameraZoomState(this);
 
         player = gameObject;
     }

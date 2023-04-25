@@ -105,6 +105,24 @@ public class MicroscopeScript : MonoBehaviour, IInteract
         }
     }
 
+    public void Examine()
+    {
+        if (onFloor)
+            playerSM.InteractExamineText.text = floorExamineText;
+        else if (broken)
+            playerSM.InteractExamineText.text = tableBrokenExamineText;
+        else
+            playerSM.InteractExamineText.text = tableFixedExamineText;
+
+        playerSM.InteractExamineTextPanel.SetActive(true);
+        playerSM.ChangeState(playerSM.zoomState, playerSM.ZoomVirtualCamera, playerSM.PlayerFollowCamera, this.gameObject, playerSM.ZoomInPercentage);
+    }
+
+    public bool HasExamine()
+    {
+        return true;
+    }
+
     public void OnPuzzleSolved()
     {
         puzzleSolved = true;
