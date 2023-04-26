@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 25
   m_EditorClassIdentifier: 
   <DialogueName>k__BackingField: 25
-  <Text>k__BackingField: "P: \u2026 Okay."
+  <Text>k__BackingField: "Ezra: \u2026 Okay."
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
     <NextDialogue>k__BackingField: {fileID: 11400000, guid: 1678be662e0ca3f408b59d183dd809e1, type: 2}

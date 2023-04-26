@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 14
   m_EditorClassIdentifier: 
   <DialogueName>k__BackingField: 14
-  <Text>k__BackingField: 'M: None of your business, bitch.'
+  <Text>k__BackingField: 'Millie: None of your business, bitch.'
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
     <NextDialogue>k__BackingField: {fileID: 11400000, guid: 93635fc408f6d6c4f8fb74727a0af24d, type: 2}

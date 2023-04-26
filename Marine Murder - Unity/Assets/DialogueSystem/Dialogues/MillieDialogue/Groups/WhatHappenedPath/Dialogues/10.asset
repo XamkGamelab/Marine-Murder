@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 10
   m_EditorClassIdentifier: 
   <DialogueName>k__BackingField: 10
-  <Text>k__BackingField: "M: Last night. We had a small argument and I haven\u2019t
+  <Text>k__BackingField: "Millie: Last night. We had a small argument and I haven\u2019t
     seen him since\u2026 until now."
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue

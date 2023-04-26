@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 5
   m_EditorClassIdentifier: 
   <DialogueName>k__BackingField: 5
-  <Text>k__BackingField: 'M: As if that''s any help, the only tolerable person here
-    is Wren, anyway.'
+  <Text>k__BackingField: 'Millie: As if that''s any help, the only tolerable person
+    here is Wren, anyway.'
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
     <NextDialogue>k__BackingField: {fileID: 11400000, guid: e21958bc0320dea43a513d8f050704a4, type: 2}
