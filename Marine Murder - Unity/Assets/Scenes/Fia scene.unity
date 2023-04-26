@@ -1772,7 +1772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &320693531
 Transform:
   m_ObjectHideFlags: 0
@@ -8379,39 +8379,39 @@ PrefabInstance:
       objectReference: {fileID: 834685897}
     - target: {fileID: 6471122737721630659, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.19138607
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6471122737721630659, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5085466
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: 6471122737721630659, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.1924047
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6471122737721630659, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.2092747
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6471122737721630659, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.20927465
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6471122737721630659, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.6754289
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6471122737721630659, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.67542887
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6471122737721630660, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: far clip plane
-      value: 5000
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 6471122737721630660, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: near clip plane
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7929768770654727223, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: gameManager

@@ -6,19 +6,23 @@ public class ButtonScript : MonoBehaviour, IInteract
 {
     [Header("Don't change")]
     [SerializeField] private int buttonNumber;
+    [SerializeField] private CodeLockScript codeLockScript;
 
     private float buttonMoveAmount, buttonMoveTime;
     private bool animating = false;
 
     void Start()
     {
-        buttonMoveAmount = GetComponentInParent<CodeLockScript>().ButtonMoveAmount;
-        buttonMoveTime = GetComponentInParent<CodeLockScript>().ButtonMoveTime;
+        //buttonMoveAmount = GetComponentInParent<CodeLockScript>().ButtonMoveAmount;
+        //buttonMoveTime = GetComponentInParent<CodeLockScript>().ButtonMoveTime;
+        buttonMoveAmount = codeLockScript.ButtonMoveAmount;
+        buttonMoveTime = codeLockScript.ButtonMoveTime;
     }
 
     public void Interact()
     {
-        this.transform.GetComponentInParent<CodeLockScript>().EnterNumber(buttonNumber);
+        //this.transform.GetComponentInParent<CodeLockScript>().EnterNumber(buttonNumber);
+        codeLockScript.EnterNumber(buttonNumber);
         if (!animating)
             StartCoroutine(ButtonAnimation());
     }
