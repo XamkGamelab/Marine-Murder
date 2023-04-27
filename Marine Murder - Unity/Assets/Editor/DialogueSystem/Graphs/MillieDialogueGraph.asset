@@ -19,10 +19,10 @@ MonoBehaviour:
     <Position>k__BackingField: {x: 676.8, y: -588.8}
   - <ID>k__BackingField: 212d5797-3a6c-40b9-870c-11ef3e166986
     <Name>k__BackingField: WhatHappenedPath
-    <Position>k__BackingField: {x: 676.7999, y: -272.8}
+    <Position>k__BackingField: {x: 676.8, y: -272.8}
   - <ID>k__BackingField: 3043bd00-168e-481a-81f3-6c15808aa2f5
     <Name>k__BackingField: RelationshipWithVictorPath
-    <Position>k__BackingField: {x: 676.8, y: 42.39998}
+    <Position>k__BackingField: {x: 676.8, y: 42.39999}
   - <ID>k__BackingField: 86133406-6a1c-4fe5-a7ad-0cd99d004efa
     <Name>k__BackingField: MicroscopePath
     <Position>k__BackingField: {x: 680, y: 351.2}
@@ -224,7 +224,7 @@ MonoBehaviour:
     <Position>k__BackingField: {x: 1420.8, y: 411.2}
   - <ID>k__BackingField: 3cc6bf27-eb46-42b9-bad4-4525e6e7c68c
     <Name>k__BackingField: 20
-    <Text>k__BackingField: 'Millie: There should be this REALLY thick manual somewhere
+    <Text>k__BackingField: 'Millie: There should be this yellow manual somewhere
       in the lab. So, how about you stop bothering me and fucking fix it yourself?'
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
