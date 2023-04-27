@@ -20,11 +20,12 @@ public class MicroscopePuzzleScript : MonoBehaviour
     private int index = 0;
     private float moveStep, rotationStep;
     private bool animating = false;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -72,6 +73,7 @@ public class MicroscopePuzzleScript : MonoBehaviour
 
     private void PuzzleSolved()
     {
+        audioSource.Play();
         Debug.Log("Puzzle solved");
         puzzleSolvedEvent.Raise();
         playerSM.ChangeState(playerSM.defaultState);

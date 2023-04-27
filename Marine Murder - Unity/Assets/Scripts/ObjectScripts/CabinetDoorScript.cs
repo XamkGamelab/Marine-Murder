@@ -19,6 +19,12 @@ public class CabinetDoorScript : MonoBehaviour, IInteract
     private bool helper;
     [HideInInspector] public bool doorLocked = true;
     [HideInInspector] public bool doorClosed = true;
+    AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     public string GetExamineText()
     {
@@ -94,11 +100,14 @@ public class CabinetDoorScript : MonoBehaviour, IInteract
 
     IEnumerator OpenCloseDoor(float targetRotationY)
     {
+        audioSource.Play();
+
         Quaternion targetRotation = Quaternion.Euler(-90, 0, targetRotationY);
         Quaternion startRotation = transform.localRotation;
         float timeCount = 0f;
 
-        while (Mathf.Abs(targetRotationY - transform.localRotation.eulerAngles.y) > 0.1f)
+        //while (Mathf.Abs(targetRotationY - transform.localRotation.eulerAngles.y) > 0.1f)
+        while(timeCount < moveTime)
         {
             transform.localRotation = Quaternion.Lerp(startRotation, targetRotation, timeCount * (1 / moveTime));
             timeCount += Time.deltaTime;
