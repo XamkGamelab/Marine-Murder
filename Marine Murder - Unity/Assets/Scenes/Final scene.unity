@@ -8680,6 +8680,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnOptionChosen
       objectReference: {fileID: 0}
+    - target: {fileID: 295955118, guid: 59115de9f5da3214aa4c18aac2f6260a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 327124835, guid: 59115de9f5da3214aa4c18aac2f6260a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -8711,6 +8715,62 @@ PrefabInstance:
     - target: {fileID: 400495400, guid: 59115de9f5da3214aa4c18aac2f6260a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnOptionChosen
+      objectReference: {fileID: 0}
+    - target: {fileID: 609173192, guid: 59115de9f5da3214aa4c18aac2f6260a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 609173192, guid: 59115de9f5da3214aa4c18aac2f6260a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 609173192, guid: 59115de9f5da3214aa4c18aac2f6260a, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 609173192, guid: 59115de9f5da3214aa4c18aac2f6260a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 609173192, guid: 59115de9f5da3214aa4c18aac2f6260a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 609173192, guid: 59115de9f5da3214aa4c18aac2f6260a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 609173192, guid: 59115de9f5da3214aa4c18aac2f6260a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 609173192, guid: 59115de9f5da3214aa4c18aac2f6260a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 609173193, guid: 59115de9f5da3214aa4c18aac2f6260a, type: 3}
+      propertyPath: m_text
+      value: You have completed the demo.
+      objectReference: {fileID: 0}
+    - target: {fileID: 609173193, guid: 59115de9f5da3214aa4c18aac2f6260a, type: 3}
+      propertyPath: m_fontSize
+      value: 146.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 609173193, guid: 59115de9f5da3214aa4c18aac2f6260a, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 146.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 609173193, guid: 59115de9f5da3214aa4c18aac2f6260a, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 609173193, guid: 59115de9f5da3214aa4c18aac2f6260a, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 609173193, guid: 59115de9f5da3214aa4c18aac2f6260a, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 652381027, guid: 59115de9f5da3214aa4c18aac2f6260a, type: 3}
       propertyPath: m_AnchorMax.y
@@ -13286,13 +13346,13 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 732699205}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 732699204}
+        m_TargetAssemblyTypeName: GameManagerScript, Assembly-CSharp
+        m_MethodName: OnPuzzleSolved
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

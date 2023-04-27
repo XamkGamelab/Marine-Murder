@@ -8,7 +8,7 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] private GameObject demoCompletePanel;
     [SerializeField] private float panelDisappearTimer;
 
-    public void OnMicroscopeFixed()
+    public void OnPuzzleSolved()
     {
         demoCompletePanel.SetActive(true);
         StartCoroutine(DisablePanel());
