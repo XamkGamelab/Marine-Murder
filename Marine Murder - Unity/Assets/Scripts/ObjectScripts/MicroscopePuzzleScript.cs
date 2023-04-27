@@ -61,7 +61,7 @@ public class MicroscopePuzzleScript : MonoBehaviour
                 if (index == correctRotationOrder.Count)
                     PuzzleSolved();
             }
-            else
+            else if(index != 0)
             {
                 index = 0;
                 Debug.Log("Wrong turn");
