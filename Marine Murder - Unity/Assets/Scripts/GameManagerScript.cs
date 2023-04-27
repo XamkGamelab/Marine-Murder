@@ -2,9 +2,11 @@ using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
+    [SerializeField] private PlayerSM playerSM;
     [SerializeField] private GameObject demoCompletePanel;
     [SerializeField] private float panelDisappearTimer;
 
@@ -18,6 +20,16 @@ public class GameManagerScript : MonoBehaviour
     {
         yield return new WaitForSeconds(panelDisappearTimer);
         demoCompletePanel.SetActive(false);
+    }
+
+    public void Continue()
+    {
+        playerSM.ChangeState(playerSM.defaultState);
+    }
+
+    public void Quit()
+    {
+        SceneManager.LoadScene(0);
     }
     // viewing code lock stuff
     //[SerializeField] private GameObject characterCamera;

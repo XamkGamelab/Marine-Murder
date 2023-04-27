@@ -38,6 +38,8 @@ public class DefaultState : BaseState
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && _sm.InteractExamineTextPanel.activeSelf)
             _sm.InteractExamineTextPanel.SetActive(false);
+        if (Input.GetKeyDown(KeyCode.Escape))
+            _sm.ChangeState(_sm.pauseState);
     }
 
     public override void CameraRotation(StarterAssetsInputs input, float rotationSpeed, float deltaTimeMultiplier, float bottomClamp, float topClamp, GameObject cinemachineCameraTarget, Transform playerTransform)

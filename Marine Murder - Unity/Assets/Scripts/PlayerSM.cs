@@ -22,6 +22,7 @@ public class PlayerSM : StateMachine
     public GameObject inventoryPanel;
     public GameObject puzzleButtonsParent;
     public GameObject crosshair;
+    public GameObject pausePanel;
 
     public MicroscopePuzzleScript puzzleScript;
 
@@ -43,6 +44,7 @@ public class PlayerSM : StateMachine
     [HideInInspector] public CodelockZoomState codelockZoomState;
     [HideInInspector] public MicroscopePuzzleState microscopePuzzleState;
     [HideInInspector] public CameraZoomState cameraZoomState;
+    [HideInInspector] public PauseState pauseState;
 
     [HideInInspector] public GameObject player;
 
@@ -54,6 +56,7 @@ public class PlayerSM : StateMachine
         codelockZoomState = new CodelockZoomState(this);
         microscopePuzzleState = new MicroscopePuzzleState(this);
         cameraZoomState = new CameraZoomState(this);
+        pauseState = new PauseState(this);
 
         player = gameObject;
     }
