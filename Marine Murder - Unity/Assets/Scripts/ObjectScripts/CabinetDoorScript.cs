@@ -8,10 +8,10 @@ public class CabinetDoorScript : MonoBehaviour, IInteract
     [SerializeField] private string examineText;
     [SerializeField] private string lockedInteractText;
 
-    [SerializeField] private float targetRotationY;
+    [SerializeField] private float targetRotationZ;
     [SerializeField] private float moveTime;
-    [SerializeField] private float closedRotationY;
-    [SerializeField] private float openRotationY;
+    [SerializeField] private float closedRotationZ;
+    [SerializeField] private float openRotationZ;
     [Space(10)]
     [Header("Don't change")]
     [SerializeField] private PlayerSM playerSM;
@@ -48,9 +48,9 @@ public class CabinetDoorScript : MonoBehaviour, IInteract
         if (!doorLocked)
         {
             if (doorClosed)
-                StartCoroutine(OpenCloseDoor(openRotationY));
+                StartCoroutine(OpenCloseDoor(openRotationZ));
             else
-                StartCoroutine(OpenCloseDoor(closedRotationY));
+                StartCoroutine(OpenCloseDoor(closedRotationZ));
         }
     }
 
@@ -79,22 +79,22 @@ public class CabinetDoorScript : MonoBehaviour, IInteract
     IEnumerator UnlockDoor()
     {
         Quaternion startRotation = transform.localRotation;
-        Quaternion targetRotation = Quaternion.Euler(0, targetRotationY, 0);
+        Quaternion targetRotation = Quaternion.Euler(-90, 0, targetRotationZ);
         float timeCount = 0f;
 
-        while (transform.localRotation.eulerAngles.y < targetRotationY)
+        while (timeCount < moveTime)
         {
             transform.localRotation = Quaternion.Lerp(startRotation, targetRotation, timeCount * (1 / moveTime));
             timeCount += Time.deltaTime;
             yield return null;
         }
-
+        Debug.Log("Hello");
         doorLocked = false;
     }
 
     IEnumerator OpenCloseDoor(float targetRotationY)
     {
-        Quaternion targetRotation = Quaternion.Euler(0, targetRotationY, 0);
+        Quaternion targetRotation = Quaternion.Euler(-90, 0, targetRotationY);
         Quaternion startRotation = transform.localRotation;
         float timeCount = 0f;
 
