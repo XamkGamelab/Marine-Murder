@@ -9883,6 +9883,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1880746080}
     - target: {fileID: 1081178741, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
+      propertyPath: RaycastDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081178741, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: InteractExamineText
       value: 
       objectReference: {fileID: 1311962779}
