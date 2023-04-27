@@ -29,12 +29,14 @@ public class CodeLockScript : MonoBehaviour , IInteract
     private int index = 0;
     private bool locked = true;
     private TextMeshPro tMPro;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         givenNumber = new int[correctNumber.Length];
         tMPro = GetComponentInChildren<TextMeshPro>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public float ButtonMoveAmount
@@ -62,6 +64,8 @@ public class CodeLockScript : MonoBehaviour , IInteract
             {
                 if (CompareArray(correctNumber, givenNumber))
                 {
+                    audioSource.pitch = 0.5f;
+                    audioSource.Play();
                     Debug.Log("Correct code");
                     index = 0;
                     locked = false;
@@ -71,6 +75,7 @@ public class CodeLockScript : MonoBehaviour , IInteract
                 }
                 else
                 {
+                    StartCoroutine(PlayWrongCodeSound());
                     Debug.Log("Wrong code");
                     index = 0;
                     tMPro.text = defaultText;
@@ -126,5 +131,13 @@ public class CodeLockScript : MonoBehaviour , IInteract
     public bool HasInteract()
     {
         return true;
+    }
+
+    IEnumerator PlayWrongCodeSound()
+    {
+        audioSource.pitch = 1f;
+        audioSource.Play();
+        yield return new WaitForSeconds(audioSource.clip.length);
+        audioSource.Play();
     }
 }

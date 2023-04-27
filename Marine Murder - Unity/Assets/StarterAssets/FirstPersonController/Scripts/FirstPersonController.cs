@@ -53,10 +53,8 @@ namespace StarterAssets
 
 
         // for viewing code lock
-        [SerializeField] private GameObject codeLockVirtualCamera;
         [SerializeField] private PlayerSM playerSM;
-        [HideInInspector]
-        float cinemachineTargetYaw;
+        private AudioSource audioSource;
 
         // cinemachine
         public float cinemachineTargetPitch;
@@ -95,6 +93,7 @@ namespace StarterAssets
 
         private void Awake()
         {
+            audioSource = GetComponent<AudioSource>();
             // get a reference to our main camera
             if (_mainCamera == null)
             {
@@ -161,7 +160,11 @@ namespace StarterAssets
 
             // note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
             // if there is no input, set the target speed to 0
-            if (_input.move == Vector2.zero) targetSpeed = 0.0f;
+            if (_input.move == Vector2.zero)
+            {
+                audioSource.Stop();
+                targetSpeed = 0.0f;
+            }
 
             // a reference to the players current horizontal velocity
             float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
@@ -172,6 +175,8 @@ namespace StarterAssets
             // accelerate or decelerate to target speed
             if (currentHorizontalSpeed < targetSpeed - speedOffset || currentHorizontalSpeed > targetSpeed + speedOffset)
             {
+                if (!audioSource.isPlaying)
+                    audioSource.Play();
                 // creates curved result rather than a linear one giving a more organic speed change
                 // note T in Lerp is clamped, so we don't need to clamp our speed
                 _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude, Time.deltaTime * SpeedChangeRate);
