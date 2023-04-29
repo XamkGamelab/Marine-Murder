@@ -36,7 +36,7 @@ public class BoxTableScript : MonoBehaviour, IInteract
         //gameManager.ToggleObjectFocus(lockCamera, collider, 0f, true);
 
         if (lidIsOpen)
-            playerSM.ChangeState(playerSM.codelockZoomState, zoomCamera, this.gameObject);
+            playerSM.ChangeState(playerSM.controllableZoomState, zoomCamera, this.gameObject);
         else
         {
             StartCoroutine(OpenLid());
@@ -64,6 +64,6 @@ public class BoxTableScript : MonoBehaviour, IInteract
 
     public bool HasExamine()
     {
-        return true;
+        return false;
     }
 }

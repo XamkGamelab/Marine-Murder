@@ -11,8 +11,13 @@ public class PlayerSM : StateMachine
     [Header("Can change")]
     public float RaycastDistance;
     public float ZoomInPercentage = 0.5f;
-
     [SerializeField] private float textPanelDisappearTimer = 2f;
+    [Header("Puzzle Exit Gradients")]
+    public float HorizontalStartGradient;
+    public float HorizontalEndGradient;
+    public float VerticalStartGradient;
+    public float VerticalEndGradient;
+
     [Space(10)]
     [Header("Don't change")]
     public GameObject PlayerFollowCamera;
@@ -36,15 +41,21 @@ public class PlayerSM : StateMachine
     public GraphicRaycaster Raycaster;
     public FirstPersonInputModule firstPersonInputModule;
     public InputSystemUIInputModule inputSystemUIInputModule;
+    [Header("Puzzle Exit Gradients")]
+    public Image leftGradient;
+    public Image topGradient;
+    public Image rightGradient;
+    public Image bottomGradient;
 
 
     [HideInInspector] public DefaultState defaultState;
     [HideInInspector] public DialogueState dialogueState;
     [HideInInspector] public ZoomState zoomState;
-    [HideInInspector] public CodelockZoomState codelockZoomState;
+    [HideInInspector] public ControllableZoomState controllableZoomState;
     [HideInInspector] public MicroscopePuzzleState microscopePuzzleState;
     [HideInInspector] public CameraZoomState cameraZoomState;
     [HideInInspector] public PauseState pauseState;
+    [HideInInspector] public CodelockZoomState codelockZoomState;
 
     [HideInInspector] public GameObject player;
 
@@ -53,12 +64,14 @@ public class PlayerSM : StateMachine
         defaultState = new DefaultState(this);
         dialogueState = new DialogueState(this);
         zoomState = new ZoomState(this);
-        codelockZoomState = new CodelockZoomState(this);
+        controllableZoomState = new ControllableZoomState(this);
         microscopePuzzleState = new MicroscopePuzzleState(this);
         cameraZoomState = new CameraZoomState(this);
         pauseState = new PauseState(this);
+        codelockZoomState = new CodelockZoomState(this);
 
         player = gameObject;
+        Time.timeScale = 1f;
     }
 
     public void ChangeState(BaseState newState, GameObject targetCamera)

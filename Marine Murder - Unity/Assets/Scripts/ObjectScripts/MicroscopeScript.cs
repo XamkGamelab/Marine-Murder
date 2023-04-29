@@ -123,7 +123,10 @@ public class MicroscopeScript : MonoBehaviour, IInteract
 
     public bool HasExamine()
     {
-        return true;
+        if (broken)
+            return true;
+        else
+            return false;
     }
 
     public void OnPuzzleSolved()

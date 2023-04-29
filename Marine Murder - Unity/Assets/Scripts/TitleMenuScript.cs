@@ -7,6 +7,7 @@ public class TitleMenuScript : MonoBehaviour
 {
     [SerializeField] private GameObject menuParent;
     [SerializeField] private GameObject creditsParent;
+    [SerializeField] private GameObject controlsParent;
 
     AudioSource audioSource;
 
@@ -27,6 +28,13 @@ public class TitleMenuScript : MonoBehaviour
         audioSource.Play();
         menuParent.SetActive(!menuParent.activeSelf);
         creditsParent.SetActive(!creditsParent.activeSelf);
+    }
+
+    public void ControlsToggle()
+    {
+        audioSource.Play();
+        menuParent.SetActive(!menuParent.activeSelf);
+        controlsParent.SetActive(!controlsParent.activeSelf);
     }
 
     public void QuitGame()

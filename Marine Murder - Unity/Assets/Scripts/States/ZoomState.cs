@@ -45,7 +45,7 @@ public class ZoomState : BaseState
 
     public override void UpdateLogic()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Escape))
             _sm.ChangeState(_sm.defaultState);
     }
 
