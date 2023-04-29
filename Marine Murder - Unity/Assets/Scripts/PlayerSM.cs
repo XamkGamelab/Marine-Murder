@@ -12,11 +12,16 @@ public class PlayerSM : StateMachine
     public float RaycastDistance;
     public float ZoomInPercentage = 0.5f;
     [SerializeField] private float textPanelDisappearTimer = 2f;
-    [Header("Puzzle Exit Gradients")]
-    public float HorizontalStartGradient;
-    public float HorizontalEndGradient;
-    public float VerticalStartGradient;
-    public float VerticalEndGradient;
+    [Header("Puzzle Exit Gradients - Codelock")]
+    public float HorizontalStartGradientLock;
+    public float HorizontalEndGradientLock;
+    public float VerticalStartGradientLock;
+    public float VerticalEndGradientLock;
+    [Header("Puzzle Exit Gradients - Microscope")]
+    public float HorizontalStartGradientMicroscope;
+    public float HorizontalEndGradientMicroscope;
+    public float VerticalStartGradientMicroscope;
+    public float VerticalEndGradientMicroscope;
 
     [Space(10)]
     [Header("Don't change")]

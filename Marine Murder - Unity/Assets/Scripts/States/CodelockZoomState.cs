@@ -28,9 +28,9 @@ public class CodelockZoomState : ControllableZoomState
         ZoomVirtualCamera.transform.localRotation = Quaternion.Euler(cinemachineTargetPitch, cinemachineTargetYaw - 180f, 0.0f);
 
         // horizontal gradient calculations
-        float t = Mathf.Clamp(Mathf.Abs(cinemachineTargetYaw), _sm.HorizontalStartGradient, _sm.HorizontalEndGradient);
-        t -= _sm.HorizontalStartGradient;
-        t /= (_sm.HorizontalEndGradient - _sm.HorizontalStartGradient);
+        float t = Mathf.Clamp(Mathf.Abs(cinemachineTargetYaw), _sm.HorizontalStartGradientLock, _sm.HorizontalEndGradientLock);
+        t -= _sm.HorizontalStartGradientLock;
+        t /= (_sm.HorizontalEndGradientLock - _sm.HorizontalStartGradientLock);
         // left gradient
         if (cinemachineTargetYaw < 0)
             _sm.leftGradient.color = new Color(1, 1, 1, Mathf.Lerp(0, 1, t));
@@ -42,9 +42,9 @@ public class CodelockZoomState : ControllableZoomState
             ExitState();
 
         // vertical gradient calculations
-        t = Mathf.Clamp(Mathf.Abs(cinemachineTargetPitch), _sm.VerticalStartGradient, _sm.VerticalEndGradient);
-        t -= _sm.VerticalStartGradient;
-        t /= (_sm.VerticalEndGradient - _sm.VerticalStartGradient);
+        t = Mathf.Clamp(Mathf.Abs(cinemachineTargetPitch), _sm.VerticalStartGradientLock, _sm.VerticalEndGradientLock);
+        t -= _sm.VerticalStartGradientLock;
+        t /= (_sm.VerticalEndGradientLock - _sm.VerticalStartGradientLock);
         //top gradient
         if (cinemachineTargetPitch < 0)
             _sm.topGradient.color = new Color(1, 1, 1, Mathf.Lerp(0, 1, t));

@@ -10003,6 +10003,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1081178741, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
+      propertyPath: VerticalEndGradientLock
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081178741, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: InteractExamineTextPanel
       value: 
       objectReference: {fileID: 1265188337}
@@ -10010,6 +10014,34 @@ PrefabInstance:
       propertyPath: inputSystemUIInputModule
       value: 
       objectReference: {fileID: 8906967}
+    - target: {fileID: 1081178741, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
+      propertyPath: HorizontalEndGradientLock
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081178741, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
+      propertyPath: VerticalStartGradientLock
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081178741, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
+      propertyPath: HorizontalStartGradientLock
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081178741, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
+      propertyPath: VerticalEndGradientMicroscope
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081178741, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
+      propertyPath: HorizontalEndGradientMicroscope
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081178741, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
+      propertyPath: VerticalStartGradientMicroscope
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081178741, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
+      propertyPath: HorizontalStartGradientMicroscope
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 1734462671, guid: 0dea187993913df4d836fbda18b888f3, type: 3}
       propertyPath: inventoryView
       value: 
