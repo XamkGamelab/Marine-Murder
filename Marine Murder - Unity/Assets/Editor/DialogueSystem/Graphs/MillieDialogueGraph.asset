@@ -163,15 +163,6 @@ MonoBehaviour:
     <GroupID>k__BackingField: 3043bd00-168e-481a-81f3-6c15808aa2f5
     <DialogueType>k__BackingField: 0
     <Position>k__BackingField: {x: 702.4, y: 102.399994}
-  - <ID>k__BackingField: d3045115-622b-4234-9b8e-954c0a849fe2
-    <Name>k__BackingField: 14
-    <Text>k__BackingField: 'Millie: None of your business, bitch.'
-    <Choices>k__BackingField:
-    - <Text>k__BackingField: Next Dialogue
-      <NodeID>k__BackingField: 51b7f5b3-5bc1-453c-be37-c3ec82c2a72b
-    <GroupID>k__BackingField: 3043bd00-168e-481a-81f3-6c15808aa2f5
-    <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 1092.8, y: 102.399994}
   - <ID>k__BackingField: 51b7f5b3-5bc1-453c-be37-c3ec82c2a72b
     <Name>k__BackingField: 15
     <Text>k__BackingField: "Ezra: I\u2019m only trying to help here. I need to understand
@@ -288,6 +279,15 @@ MonoBehaviour:
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
     <Position>k__BackingField: {x: 702.4, y: 988.8}
+  - <ID>k__BackingField: d3045115-622b-4234-9b8e-954c0a849fe2
+    <Name>k__BackingField: 14
+    <Text>k__BackingField: 'Millie: None of your business, bitch.'
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 51b7f5b3-5bc1-453c-be37-c3ec82c2a72b
+    <GroupID>k__BackingField: 3043bd00-168e-481a-81f3-6c15808aa2f5
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 1092.8, y: 102.399994}
   <OldGroupNames>k__BackingField:
   - HowAreYouPath
   - WhatHappenedPath
@@ -317,9 +317,9 @@ MonoBehaviour:
     - Key: RelationshipWithVictorPath
       Value:
       - 13
-      - 14
       - 15
       - 16
+      - 14
     - Key: MicroscopePath
       Value:
       - 17

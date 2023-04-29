@@ -8,31 +8,27 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BoO highlight material
-  m_Shader: {fileID: 4800000, guid: 771212bfbb93a074d8792c70bcebb6cc, type: 3}
+  m_Shader: {fileID: 4800000, guid: 650dd9526735d5b46b79224bc6e94025, type: 3}
   m_ValidKeywords:
-  - _DIFFUSELIGHTINGSTYLE_STEPPED
-  - _DIFFUSETEXTUREMAPPING_SCREENSTABLE
-  - _REFLECTIONSENABLED_ON
-  - _SPECULARLIGHTINGSTYLE_BASIC
-  - _SPECULARTEXTUREMAPPING_SCREENSTABLE
-  m_InvalidKeywords:
-  - _ALPHAPREMULTIPLY_ON
-  - _DIFFUSEHATCHING_SINGLECHANNEL
-  - _INVERTSHADOWEDLINES_ON
-  - _KEEPLINESTHICC_ON
-  - _LINESON_ON
-  - _PRESERVESPEC_ON
-  - _SPECULARHATCHING_SINGLECHANNEL
-  - _SPECULARTYPE_COOKTORRANCE
+  - _ALPHATEST_ON
+  - _SURFACE_TYPE_TRANSPARENT
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
+  m_DoubleSidedGI: 1
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
+  disabledShaderPasses:
+  - DepthOnly
+  - SHADOWCASTER
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -99,12 +95,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AlphaClip: 1
     - _AmbientCategory: 0
     - _AmbientShadowStrength: 0
     - _BaseReflectStrength: 0.5
+    - _Blend: 0
+    - _BlendOp: 0
     - _BumpScale: 1
     - _Cull: 0
-    - _Cutoff: 0.5
+    - _Cutoff: 0.483
     - _CutoffEnabled: 0
     - _DetailNormalMapScale: 1
     - _DiffuseCategory: 0
@@ -138,6 +137,7 @@ Material:
     - _OpaqueLines: 0
     - _Parallax: 0.02
     - _PreserveSpec: 1
+    - _QueueOffset: 0
     - _ReflectionsCategory: 0
     - _ReflectionsEnabled: 1
     - _Refraction: 0
@@ -145,6 +145,7 @@ Material:
     - _RefractionNote: 0
     - _RefractionStr: 0.1
     - _RefractionTint: 0
+    - _SampleGI: 0
     - _ScreenStableDistanceScale: 0
     - _ScreenStableDistanceScaleSpec: 0
     - _SmoothnessTextureChannel: 0
@@ -158,16 +159,18 @@ Material:
     - _SpecularTextureMapping: 2
     - _SpecularTextureSize: 1
     - _SpecularType: 0
-    - _SrcBlend: 1
+    - _SrcBlend: 5
+    - _Surface: 1
     - _TEXTURESFOLDOUT: 0
     - _TRANSPARENCYFOLDOUT: 0
     - _TransparencyNote: 0
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 0, g: 1, b: 1, a: 0.21960784}
+    - _BaseColor: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
+    - _Color: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
     - _DiffuseEdge: {r: 0, g: 1, b: 0, a: 0}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _HatchingRanges: {r: 0.33, g: 0.66, b: 1, a: 1}
     - _HatchingRangesSpec: {r: 0.33, g: 0.66, b: 1, a: 1}
     - _PaintMaskEdges: {r: 0, g: 1, b: 0, a: 0}
@@ -175,3 +178,16 @@ Material:
     - _SpecularEdge: {r: 0, g: 1, b: 0, a: 0}
     - _TilingOffset: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!114 &1105745513753505569
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
