@@ -21,6 +21,14 @@ public class CodelockZoomState : ControllableZoomState
         cinemachineTargetYaw = 0;
     }
 
+    public override void UpdateLogic()
+    {
+        base.UpdateLogic();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            ExitState();
+    }
+
     public override void CameraRotation(StarterAssetsInputs input, float rotationSpeed, float deltaTimeMultiplier, float bottomClamp, float topClamp, GameObject cinemachineCameraTarget, Transform playerTransform)
     {
         cinemachineTargetPitch += input.look.y * rotationSpeed * deltaTimeMultiplier;

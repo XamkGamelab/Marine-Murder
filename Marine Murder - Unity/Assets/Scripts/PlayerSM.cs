@@ -61,6 +61,7 @@ public class PlayerSM : StateMachine
     [HideInInspector] public CameraZoomState cameraZoomState;
     [HideInInspector] public PauseState pauseState;
     [HideInInspector] public CodelockZoomState codelockZoomState;
+    [HideInInspector] public ObjectiveBoxZoomState objectiveBoxZoomState;
 
     [HideInInspector] public GameObject player;
 
@@ -74,6 +75,7 @@ public class PlayerSM : StateMachine
         cameraZoomState = new CameraZoomState(this);
         pauseState = new PauseState(this);
         codelockZoomState = new CodelockZoomState(this);
+        objectiveBoxZoomState = new ObjectiveBoxZoomState(this);
 
         player = gameObject;
         Time.timeScale = 1f;

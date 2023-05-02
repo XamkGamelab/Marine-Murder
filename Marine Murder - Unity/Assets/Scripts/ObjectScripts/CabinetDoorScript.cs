@@ -94,7 +94,6 @@ public class CabinetDoorScript : MonoBehaviour, IInteract
             timeCount += Time.deltaTime;
             yield return null;
         }
-        Debug.Log("Hello");
         doorLocked = false;
     }
 

@@ -36,7 +36,8 @@ public class BoxTableScript : MonoBehaviour, IInteract
         //gameManager.ToggleObjectFocus(lockCamera, collider, 0f, true);
 
         if (lidIsOpen)
-            playerSM.ChangeState(playerSM.controllableZoomState, zoomCamera, this.gameObject);
+            //playerSM.ChangeState(playerSM.controllableZoomState, zoomCamera, this.gameObject);
+            playerSM.ChangeState(playerSM.objectiveBoxZoomState, zoomCamera);
         else
         {
             StartCoroutine(OpenLid());

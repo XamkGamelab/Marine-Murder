@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class MicroscopePuzzleState : BaseState
+public class ObjectiveBoxZoomState : BaseState
 {
     private PlayerSM _sm;
     private GameObject _zoomVirtualCamera;
+    private bool _key;
 
-    public MicroscopePuzzleState(PlayerSM stateMachine) : base("MicroscopePuzzleState", stateMachine)
+    public ObjectiveBoxZoomState(PlayerSM stateMachine) : base("ObjectiveBoxZoomState", stateMachine)
     {
         _sm = stateMachine;
     }
@@ -21,13 +23,15 @@ public class MicroscopePuzzleState : BaseState
         Cursor.lockState = CursorLockMode.Confined;
         _sm.crosshair.SetActive(false);
 
-        _sm.inventoryPanel.SetActive(false);
-        _sm.puzzleButtonsParent.SetActive(true);
+        //_sm.inventoryPanel.SetActive(false);
+        //_sm.puzzleButtonsParent.SetActive(true);
         _sm.PlayerFollowCamera.SetActive(false);
         zoomVirtualCamera.SetActive(true);
+        zoomVirtualCamera.GetComponentInParent<Collider>().enabled = false;
 
         _zoomVirtualCamera = zoomVirtualCamera;
-        _sm.puzzleScript.StartPuzzle();
+        //_sm.puzzleScript.StartPuzzle();
+        LayerMask = 1 << 6;
     }
 
     public override void Exit()
@@ -38,21 +42,20 @@ public class MicroscopePuzzleState : BaseState
         Cursor.lockState = CursorLockMode.Locked;
         _sm.crosshair.SetActive(true);
 
-        _sm.inventoryPanel.SetActive(true);
-        _sm.puzzleButtonsParent.SetActive(false);
+        //_sm.inventoryPanel.SetActive(true);
+        //_sm.puzzleButtonsParent.SetActive(false);
         _sm.PlayerFollowCamera.SetActive(true);
         _zoomVirtualCamera.SetActive(false);
+        _zoomVirtualCamera.GetComponentInParent<Collider>().enabled = true;
     }
 
     public override void UpdateLogic()
     {
+        RaycastCheck();
+
+
         if (Input.GetKeyDown(KeyCode.Escape))
             ExitState();
-
-        if (Input.GetKeyDown(KeyCode.A))
-            _sm.puzzleScript.Rotate(1);
-        if (Input.GetKeyDown(KeyCode.D))
-            _sm.puzzleScript.Rotate(0);
 
         Vector2 mousePos = new Vector2(Input.mousePosition.x - Screen.width / 2, Input.mousePosition.y - Screen.height / 2);
         // horizontal gradient calculations
@@ -84,7 +87,7 @@ public class MicroscopePuzzleState : BaseState
             ExitState();
     }
 
-    public override void OnInteract(Camera mainCamera, DialogueScript dialogueScript) { }
+    //public override void OnInteract(Camera mainCamera, DialogueScript dialogueScript) { }
 
     private void ExitState()
     {
@@ -94,5 +97,52 @@ public class MicroscopePuzzleState : BaseState
         _sm.bottomGradient.color = new Color(1, 1, 1, 0);
 
         _sm.ChangeState(_sm.defaultState);
+    }
+
+    private void RaycastCheck()
+    {
+        RaycastHit hit;
+        Ray forwardRay = _sm.MainCamera.ScreenPointToRay(Input.mousePosition);
+        //int layerMask = 1 << 6;
+
+        // if hit something on interactables layer
+        if (Physics.Raycast(forwardRay, out hit, _sm.RaycastDistance, LayerMask))
+        {
+            if (hit.transform.gameObject.TryGetComponent<IDirectInteract>(out IDirectInteract interaction))
+            {
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                    interaction.Interact(_sm);
+
+                // hit object has Outline script component
+                if (hit.transform.gameObject.TryGetComponent<Outline>(out Outline outline))
+                {
+                    // no target -> set target to hit object & activate highlight panel
+                    if (Target == null || Target != hit.transform.gameObject)
+                    {
+                        ResetTarget();
+
+                        Target = hit.transform.gameObject;
+                        outline.enabled = true;
+
+                        _key = true;
+                    }
+                }
+                else
+                    ResetTarget();
+            }
+        }
+
+        // did not hit anything on interactables layer and key is true
+        else if (_key == true)
+            ResetTarget();
+    }
+
+    private void ResetTarget()
+    {
+        if (Target != null)
+            Target.GetComponent<Outline>().enabled = false;
+
+        Target = null;
+        _key = false;
     }
 }

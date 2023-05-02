@@ -66,7 +66,6 @@ public class CodeLockScript : MonoBehaviour , IInteract
                 {
                     audioSource.pitch = 0.5f;
                     audioSource.Play();
-                    Debug.Log("Correct code");
                     index = 0;
                     locked = false;
                     lockUnlocked.Raise();
@@ -76,7 +75,6 @@ public class CodeLockScript : MonoBehaviour , IInteract
                 else
                 {
                     StartCoroutine(PlayWrongCodeSound());
-                    Debug.Log("Wrong code");
                     index = 0;
                     tMPro.text = defaultText;
                 }
