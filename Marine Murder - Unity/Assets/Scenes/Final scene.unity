@@ -4563,7 +4563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c4330c7e5a6604793d623f84b05205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  examineText: Theres something scratched on the code lock.
+  examineText: Theres something scribbled on the code lock.
   defaultText: ----
   correctNumber: 02000000010000000000000004000000
   buttonMoveAmount: 0.01
