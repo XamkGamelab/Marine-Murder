@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f84a333946d6e499483a532eb8f2a7, type: 3}
   m_Name: ObjectiveB
   m_EditorClassIdentifier: 
-  itemImage: {fileID: 21300000, guid: a229ca1afb0e672499152bb73d80c9d6, type: 3}
+  itemImage: {fileID: 21300000, guid: b39f79bbb53364c40b3f2ecb5b90c8b0, type: 3}
