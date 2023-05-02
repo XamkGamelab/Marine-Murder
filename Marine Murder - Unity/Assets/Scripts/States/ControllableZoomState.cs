@@ -6,7 +6,7 @@ using StarterAssets;
 public class ControllableZoomState : ZoomState
 {
     private GameObject _targetGO;
-    private bool _key;
+    protected bool _key;
 
     protected Quaternion _startingRotation;
 
