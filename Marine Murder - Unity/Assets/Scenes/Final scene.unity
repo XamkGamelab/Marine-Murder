@@ -14869,7 +14869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   examineText: Ah, this is the objective box!
-  interactText: Here we go!
+  interactText: I should put this on the table.
   playerSM: {fileID: 989438248}
   tableSpot: {fileID: 851513917}
   boxSO: {fileID: 11400000, guid: d25f5bcba646a8641bf9ee5fad4ac139, type: 2}
