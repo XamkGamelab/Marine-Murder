@@ -13213,6 +13213,10 @@ PrefabInstance:
       propertyPath: correctObjectiveText
       value: Ah! This objective is the one I needed.
       objectReference: {fileID: 0}
+    - target: {fileID: 319810968438462203, guid: 782b36862e74c6d4286faf39fe6258c2, type: 3}
+      propertyPath: tableFixedExamineText
+      value: Nice, almost fixed.
+      objectReference: {fileID: 0}
     - target: {fileID: 319810968438462204, guid: 782b36862e74c6d4286faf39fe6258c2, type: 3}
       propertyPath: playerSM
       value: 
