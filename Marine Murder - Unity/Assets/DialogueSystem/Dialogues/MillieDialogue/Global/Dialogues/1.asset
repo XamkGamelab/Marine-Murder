@@ -30,10 +30,10 @@ MonoBehaviour:
   - <Text>k__BackingField: Microscope
     <NextDialogue>k__BackingField: {fileID: 11400000, guid: 053b5b16f07690e4ea5548da629e915d, type: 2}
     <NeedsItem>k__BackingField: {fileID: 0}
-    <NeedsEventCheck>k__BackingField: {fileID: 11400000, guid: a2fc5e8b38d50ad40aad53571c860f8f, type: 2}
+    <NeedsEventCheck>k__BackingField: {fileID: 0}
   - <Text>k__BackingField: Crystal
     <NextDialogue>k__BackingField: {fileID: 11400000, guid: abcddce781a914c4c9ce7561f7236de7, type: 2}
-    <NeedsItem>k__BackingField: {fileID: 11400000, guid: 32c4e866ece9f7843b5c7e1f1ddced5c, type: 2}
+    <NeedsItem>k__BackingField: {fileID: 0}
     <NeedsEventCheck>k__BackingField: {fileID: 0}
   - <Text>k__BackingField: '*Leave*'
     <NextDialogue>k__BackingField: {fileID: 11400000, guid: a68cdaea2aabb2643bdc6f8d3fddd0ed, type: 2}
